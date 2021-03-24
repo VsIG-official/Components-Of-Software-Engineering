@@ -47,9 +47,11 @@ namespace Lab2
 
 			//Console.WriteLine(worker.ReadAll());
 
-			Console.WriteLine(FileWorker.ReadAll(FULL_PATH_MD));
-			Console.WriteLine(FileWorker.ReadAll(FULL_PATH_EXCEL));
-			Console.WriteLine(FileWorker.ReadAll(FULL_PATH_XML));
+			//Console.WriteLine(FileWorker.ReadAll(FULL_PATH));
+
+			//Console.WriteLine(FileWorker.ReadAll(FULL_PATH_MD));
+			//Console.WriteLine(FileWorker.ReadAll(FULL_PATH_EXCEL));
+			//Console.WriteLine(FileWorker.ReadAll(FULL_PATH_XML));
 			Console.WriteLine(FileWorker.ReadAll(FULL_PATH_CSV));
 		}
 	}
