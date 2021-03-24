@@ -5,4 +5,10 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="IIG.Core.FileWorkingUtils">
+      <HintPath>..\Libraries\IIG.Core.FileWorkingUtils\IIG.Core.FileWorkingUtils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
