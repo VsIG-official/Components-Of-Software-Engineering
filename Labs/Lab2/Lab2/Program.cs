@@ -25,6 +25,11 @@ namespace Lab2
 
 			Console.WriteLine(FileWorker.GetFileName(FULL_PATH));
 			*/
+
+
+			// Console.WriteLine(worker.GetFullPath());
+
+			Console.WriteLine(FileWorker.GetFullPath(FULL_PATH));
 		}
 	}
 }

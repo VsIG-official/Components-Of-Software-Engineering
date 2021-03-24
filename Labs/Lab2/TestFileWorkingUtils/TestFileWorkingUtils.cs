@@ -39,8 +39,8 @@ namespace TestFileWorkingUtils
 		}
 
 		/// <summary>
-		/// Test public method GetFileName
-		/// Check if we get exact string as it is in constructor
+		/// Test public method GetFileName using constructor
+		/// Check if we get correct name of the file
 		/// </summary>
 		[Fact]
 		public void GetFileNameFromConstructor_None_ReturnsSameString()
@@ -60,8 +60,8 @@ namespace TestFileWorkingUtils
 		}
 
 		/// <summary>
-		/// Test public method GetFileName
-		/// Check if we get exact string as it is in constructor
+		/// Test public method GetFileName using class
+		/// Check if we get correct name of the file
 		/// </summary>
 		[Fact]
 		public void GetFileNameFromClass_None_ReturnsSameString()
