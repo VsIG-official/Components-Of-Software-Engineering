@@ -7,8 +7,8 @@ namespace Lab2
 	{
 		static void Main()
 		{
-			const string FULL_PATH = "D:/ForStudy/Components-Of-" +
-				"Software-Engineering/Labs/Lab2/Lab2/TempFile.txt";
+			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TempFile.txt";
 			FileWorker worker = new(FULL_PATH);
 
 			// Print field (should be FULL_PATH)
@@ -26,10 +26,15 @@ namespace Lab2
 			Console.WriteLine(FileWorker.GetFileName(FULL_PATH));
 			*/
 
-
-			// Console.WriteLine(worker.GetFullPath());
+			/*
+			Console.WriteLine(worker.GetFullPath());
 
 			Console.WriteLine(FileWorker.GetFullPath(FULL_PATH));
+			*/
+
+			//Console.WriteLine(worker.ReadAll());
+
+			Console.WriteLine(FileWorker.ReadAll(FULL_PATH));
 		}
 	}
 }
