@@ -45,14 +45,48 @@ namespace Lab2
 			Console.WriteLine(FileWorker.GetFullPath(FULL_PATH));
 			*/
 
-			//Console.WriteLine(worker.ReadAll());
+			/*
+			Console.WriteLine(worker.ReadAll());
 
-			//Console.WriteLine(FileWorker.ReadAll(FULL_PATH));
+			Console.WriteLine(FileWorker.ReadAll(FULL_PATH));
 
-			//Console.WriteLine(FileWorker.ReadAll(FULL_PATH_MD));
-			//Console.WriteLine(FileWorker.ReadAll(FULL_PATH_EXCEL));
-			//Console.WriteLine(FileWorker.ReadAll(FULL_PATH_XML));
+			Console.WriteLine(FileWorker.ReadAll(FULL_PATH_MD));
+			Console.WriteLine(FileWorker.ReadAll(FULL_PATH_EXCEL));
+			Console.WriteLine(FileWorker.ReadAll(FULL_PATH_XML));
 			Console.WriteLine(FileWorker.ReadAll(FULL_PATH_CSV));
+			*/
+
+			/*
+			for (int i = 0; i < worker.ReadLines().Length; i++)
+			{
+				Console.WriteLine(worker.ReadLines()[i]);
+			}
+
+			for (int i = 0; i < FileWorker.ReadLines(FULL_PATH).Length; i++)
+			{
+				Console.WriteLine(FileWorker.ReadLines(FULL_PATH)[i]);
+			}
+
+			for (int i = 0; i < FileWorker.ReadLines(FULL_PATH_MD).Length; i++)
+			{
+				Console.WriteLine(FileWorker.ReadLines(FULL_PATH_MD)[i]);
+			}
+
+			for (int i = 0; i < FileWorker.ReadLines(FULL_PATH_EXCEL).Length; i++)
+			{
+				Console.WriteLine(FileWorker.ReadLines(FULL_PATH_EXCEL)[i]);
+			}
+
+			for (int i = 0; i < FileWorker.ReadLines(FULL_PATH_XML).Length; i++)
+			{
+				Console.WriteLine(FileWorker.ReadLines(FULL_PATH_XML)[i]);
+			}
+			*/
+
+			for (int i = 0; i < FileWorker.ReadLines(FULL_PATH_CSV).Length; i++)
+			{
+				Console.WriteLine(FileWorker.ReadLines(FULL_PATH_CSV)[i]);
+			}
 		}
 	}
 }
