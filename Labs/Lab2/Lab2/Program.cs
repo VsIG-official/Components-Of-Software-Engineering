@@ -81,12 +81,12 @@ namespace Lab2
 			{
 				Console.WriteLine(FileWorker.ReadLines(FULL_PATH_XML)[i]);
 			}
-			*/
 
 			for (int i = 0; i < FileWorker.ReadLines(FULL_PATH_CSV).Length; i++)
 			{
 				Console.WriteLine(FileWorker.ReadLines(FULL_PATH_CSV)[i]);
 			}
+			*/
 		}
 	}
 }
