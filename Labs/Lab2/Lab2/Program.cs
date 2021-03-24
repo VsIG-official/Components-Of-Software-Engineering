@@ -26,7 +26,7 @@ namespace Lab2
 				@"Software-Engineering\Labs\Lab2\Lab2\WriteFile.txt";
 
 			const string FULL_PATH_NO_DIR = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\WriteFile.txt";
+				@"Software-Engineering\Labs\Lab2\NoDir\NoDirFile.txt";
 
 			FileWorker worker = new(FULL_PATH);
 
@@ -98,7 +98,11 @@ namespace Lab2
 			}
 			*/
 
-			Console.WriteLine(writeNoDir.TryWrite("Text from Visual Studio 2"));
+			/*
+			// doesn't work
+			// Console.WriteLine(FileWorker.TryWrite("Text from Visual Studio 2"));
+			*/
+			Console.WriteLine(FileWorker.TryWrite("Text from Visual Studio 2", FULL_PATH_NO_DIR));
 		}
 	}
 }
