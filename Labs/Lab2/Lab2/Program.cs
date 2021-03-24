@@ -32,7 +32,7 @@ namespace Lab2
 
 			FileWorker writeNoFile = new(FULL_PATH_NO_FILE);
 
-			FileWorker writeNoDir = new(FULL_PATH_NO_DIR);
+			// FileWorker writeNoDir = new(FULL_PATH_NO_DIR);
 
 			// Print field (should be FULL_PATH)
 			// Console.WriteLine(worker.FilePath);
@@ -100,9 +100,15 @@ namespace Lab2
 
 			/*
 			// doesn't work
-			// Console.WriteLine(FileWorker.TryWrite("Text from Visual Studio 2"));
+			// Console.WriteLine(FileWorker.TryWrite("Text from " +
+			// "Visual Studio 2"));
+
+			// doesn't work
+			// Console.WriteLine(FileWorker.TryWrite("Text from Visual" +
+			//	" Studio 2", FULL_PATH_NO_DIR));
 			*/
-			Console.WriteLine(FileWorker.TryWrite("Text from Visual Studio 2", FULL_PATH_NO_DIR));
+
+			Console.WriteLine(writeNoFile.TryWrite("Text from Visual Studio 2", 10));
 		}
 	}
 }
