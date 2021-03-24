@@ -9,7 +9,7 @@ namespace TestFileWorkingUtils
 		[Fact]
 		public void Test1()
 		{
-			FileWorker worker = new FileWorker();
+			FileWorker worker = new FileWorker("Labs/Lab2/Lab2/TempFile.txt");
 		}
 	}
 }
