@@ -22,7 +22,17 @@ namespace Lab2
 			const string FULL_PATH_CSV = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TempFileCSV.csv";
 
+			const string FULL_PATH_NO_FILE = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\WriteFile.txt";
+
+			const string FULL_PATH_NO_DIR = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\WriteFile.txt";
+
 			FileWorker worker = new(FULL_PATH);
+
+			FileWorker writeNoFile = new(FULL_PATH_NO_FILE);
+
+			FileWorker writeNoDir = new(FULL_PATH_NO_DIR);
 
 			// Print field (should be FULL_PATH)
 			// Console.WriteLine(worker.FilePath);
@@ -87,6 +97,8 @@ namespace Lab2
 				Console.WriteLine(FileWorker.ReadLines(FULL_PATH_CSV)[i]);
 			}
 			*/
+
+			Console.WriteLine(writeNoDir.TryWrite("Text from Visual Studio 2"));
 		}
 	}
 }

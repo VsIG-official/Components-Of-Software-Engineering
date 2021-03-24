@@ -503,7 +503,7 @@ namespace TestFileWorkingUtils
 
 		#endregion ReadLinesXML
 
-		#region ReadLinesXML
+		#region ReadLinesCSV
 
 		/// <summary>
 		/// Test public method ReadLines using constructor
@@ -556,5 +556,7 @@ namespace TestFileWorkingUtils
 		#endregion ReadLinesCSV
 
 		#endregion ReadLines
+
+
 	}
 }
