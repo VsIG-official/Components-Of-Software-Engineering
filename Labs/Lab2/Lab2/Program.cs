@@ -129,9 +129,9 @@ namespace Lab2
 				" Visual Studio 2", FULL_PATH_NO_FILE, -1));
 			Console.WriteLine(FileWorker.TryWrite("Text from" +
 				" Visual Studio 2", FULL_PATH_NO_FILE, 10));
-			*/
 
 			Console.WriteLine(workerNoFile.TryWrite("Text from Visual Studio XLSX"));
+			*/
 		}
 	}
 }
