@@ -355,7 +355,7 @@ namespace TestFileWorkingUtils
 		{
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\TempFile.txt";
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles\TempFile.txt";
 
 			FileWorker worker = new(FULL_PATH);
 
@@ -380,7 +380,7 @@ namespace TestFileWorkingUtils
 		{
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\TempFile.txt";
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles\TempFile.txt";
 
 			string expected = FileWorker.ReadLines(FULL_PATH)[indexOfString];
 
@@ -407,7 +407,7 @@ namespace TestFileWorkingUtils
 		{
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\TempFileMD.md";
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles\TempFileMD.md";
 
 			FileWorker worker = new(FULL_PATH);
 
@@ -432,7 +432,7 @@ namespace TestFileWorkingUtils
 		{
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\TempFileMD.md";
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles\TempFileMD.md";
 
 			string expected = FileWorker.ReadLines(FULL_PATH)[indexOfString];
 
@@ -462,7 +462,7 @@ namespace TestFileWorkingUtils
 		{
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\TempFileXML.xml";
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles\TempFileXML.xml";
 
 			FileWorker worker = new(FULL_PATH);
 
@@ -490,7 +490,7 @@ namespace TestFileWorkingUtils
 		{
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\TempFileXML.xml";
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles\TempFileXML.xml";
 
 			string expected = FileWorker.ReadLines(FULL_PATH)[indexOfString];
 
@@ -517,7 +517,7 @@ namespace TestFileWorkingUtils
 		{
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\TempFileCSV.csv";
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles\TempFileCSV.csv";
 
 			FileWorker worker = new(FULL_PATH);
 
@@ -542,7 +542,7 @@ namespace TestFileWorkingUtils
 		{
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\TempFileCSV.csv";
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles\TempFileCSV.csv";
 
 			string expected = FileWorker.ReadLines(FULL_PATH)[indexOfString];
 
@@ -571,7 +571,7 @@ namespace TestFileWorkingUtils
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\TestWriteFileConstructorTXT.txt";
+				@"\TestTryWriteFileConstructorTXT.txt";
 			const string STRING_TO_FILE = "Text from test Constructor TXT";
 			FileWorker worker = new(FULL_PATH);
 
@@ -594,7 +594,7 @@ namespace TestFileWorkingUtils
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\TestWriteFileClassTXT.txt";
+				@"\TestTryWriteFileClassTXT.txt";
 			const string STRING_TO_FILE = "Text from test Class TXT";
 
 			bool expected = FileWorker.TryWrite(STRING_TO_FILE, FULL_PATH);
@@ -620,7 +620,7 @@ namespace TestFileWorkingUtils
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\TestWriteFileConstructorMD.md";
+				@"\TestTryWriteFileConstructorMD.md";
 			const string STRING_TO_FILE = "Text from test Constructor MD";
 			FileWorker worker = new(FULL_PATH);
 
@@ -643,7 +643,7 @@ namespace TestFileWorkingUtils
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\TestWriteFileClassMD.md";
+				@"\TestTryWriteFileClassMD.md";
 			const string STRING_TO_FILE = "Text from test Class MD";
 
 			bool expected = FileWorker.TryWrite(STRING_TO_FILE, FULL_PATH);
@@ -669,7 +669,7 @@ namespace TestFileWorkingUtils
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\TestWriteFileConstructorXML.xml";
+				@"\TestTryWriteFileConstructorXML.xml";
 			const string STRING_TO_FILE = "Text from test Constructor XML";
 			FileWorker worker = new(FULL_PATH);
 
@@ -692,7 +692,7 @@ namespace TestFileWorkingUtils
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\TestWriteFileClassXML.xml";
+				@"\TestTryWriteFileClassXML.xml";
 			const string STRING_TO_FILE = "Text from test Class XML";
 
 			bool expected = FileWorker.TryWrite(STRING_TO_FILE, FULL_PATH);
@@ -718,7 +718,7 @@ namespace TestFileWorkingUtils
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\TestWriteFileConstructorCSV.csv";
+				@"\TestTryWriteFileConstructorCSV.csv";
 			const string STRING_TO_FILE = "Text from test Constructor CSV";
 			FileWorker worker = new(FULL_PATH);
 
@@ -741,7 +741,7 @@ namespace TestFileWorkingUtils
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\TestWriteFileClassCSV.csv";
+				@"\TestTryWriteFileClassCSV.csv";
 			const string STRING_TO_FILE = "Text from test Class CSV";
 
 			bool expected = FileWorker.TryWrite(STRING_TO_FILE, FULL_PATH);
@@ -767,7 +767,7 @@ namespace TestFileWorkingUtils
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\TestWriteFileConstructorZeroTriesTXT.txt";
+				@"\TestTryWriteFileConstructorZeroTriesTXT.txt";
 			const string STRING_TO_FILE = "Text from test " +
 				"Zero Tries Constructor TXT";
 			FileWorker worker = new(FULL_PATH);
@@ -791,7 +791,7 @@ namespace TestFileWorkingUtils
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\TestWriteFileClassZeroTriesTXT.txt";
+				@"\TestTryWriteFileClassZeroTriesTXT.txt";
 			const string STRING_TO_FILE = "Text from test " +
 				"Zero Tries Class TXT";
 
@@ -818,7 +818,7 @@ namespace TestFileWorkingUtils
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\TestWriteFileConstructorNegativeTriesTXT.txt";
+				@"\TestTryWriteFileConstructorNegativeTriesTXT.txt";
 			const string STRING_TO_FILE = "Text from test " +
 				"Negative Tries Constructor TXT";
 			FileWorker worker = new(FULL_PATH);
@@ -842,7 +842,7 @@ namespace TestFileWorkingUtils
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\TestWriteFileClassNegativeTriesTXT.txt";
+				@"\TestTryWriteFileClassNegativeTriesTXT.txt";
 			const string STRING_TO_FILE = "Text from test " +
 				"Negative Tries Class TXT";
 
@@ -869,7 +869,7 @@ namespace TestFileWorkingUtils
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\TestWriteFileConstructorManyTriesTXT.txt";
+				@"\TestTryWriteFileConstructorManyTriesTXT.txt";
 			const string STRING_TO_FILE = "Text from test " +
 				"Many Tries Constructor TXT";
 			FileWorker worker = new(FULL_PATH);
@@ -893,7 +893,7 @@ namespace TestFileWorkingUtils
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\TestWriteFileClassManyTriesTXT.txt";
+				@"\TestTryWriteFileClassManyTriesTXT.txt";
 			const string STRING_TO_FILE = "Text from test " +
 				"Many Tries Class TXT";
 
@@ -909,5 +909,58 @@ namespace TestFileWorkingUtils
 		#endregion TryWriteManyTries
 
 		#endregion TryWrite
+
+		#region Write
+
+		#region WriteTXT
+
+		/// <summary>
+		/// Test public method TryWrite using constructor
+		/// Check if we create txt file
+		/// </summary>
+		[Fact]
+		public void WriteTXTFromConstructor_None_ReturnsTrue()
+		{
+			// Arrange
+			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\TestWriteFileConstructorTXT.txt";
+			const string STRING_TO_FILE = "Text from test Constructor TXT";
+			FileWorker worker = new(FULL_PATH);
+
+			bool expected = worker.TryWrite(STRING_TO_FILE);
+
+			// Act
+			bool actual = true;
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		/// <summary>
+		/// Test public method TryWrite using class
+		/// Check if we create txt file
+		/// </summary>
+		[Fact]
+		public void WriteTXTFromClass_Path_ReturnsTrue()
+		{
+			// Arrange
+			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\TestWriteFileClassTXT.txt";
+			const string STRING_TO_FILE = "Text from test Class TXT";
+
+			bool expected = FileWorker.TryWrite(STRING_TO_FILE, FULL_PATH);
+
+			// Act
+			bool actual = true;
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		#endregion WriteTXT
+
+		#endregion Write
 	}
 }

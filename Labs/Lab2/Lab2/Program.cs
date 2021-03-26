@@ -132,6 +132,8 @@ namespace Lab2
 
 			Console.WriteLine(workerNoFile.TryWrite("Text from Visual Studio XLSX"));
 			*/
+
+			Console.WriteLine(worker.Write("Text from Visual Studio"));
 		}
 	}
 }
