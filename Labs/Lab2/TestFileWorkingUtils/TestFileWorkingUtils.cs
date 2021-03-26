@@ -557,6 +557,10 @@ namespace TestFileWorkingUtils
 
 		#endregion ReadLines
 
+		#region TryWrite
 
+
+
+		#endregion TryWrite
 	}
 }

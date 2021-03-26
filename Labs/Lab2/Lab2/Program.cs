@@ -28,9 +28,21 @@ namespace Lab2
 			const string FULL_PATH_NO_DIR = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\NoDir\NoDirFile.txt";
 
+			const string FULL_PATH_NO_FILE_MD = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\WriteFileMD.md";
+
+			const string FULL_PATH_NO_FILE_XML = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\WriteFileXML.xml";
+
+			const string FULL_PATH_NO_FILE_CSV = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\WriteFileCSV.csv";
+
+			const string FULL_PATH_NO_FILE_XLSX = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\WriteFileXLSX.xlsx";
+
 			FileWorker worker = new(FULL_PATH);
 
-			FileWorker writeNoFile = new(FULL_PATH_NO_FILE);
+			FileWorker workerNoFile = new(FULL_PATH_NO_FILE_XLSX);
 
 			// FileWorker writeNoDir = new(FULL_PATH_NO_DIR);
 
@@ -106,9 +118,20 @@ namespace Lab2
 			// doesn't work
 			// Console.WriteLine(FileWorker.TryWrite("Text from Visual" +
 			//	" Studio 2", FULL_PATH_NO_DIR));
+
+			Console.WriteLine(workerNoFile.TryWrite("Text from Visual Studio 2", 0));
+			Console.WriteLine(workerNoFile.TryWrite("Text from Visual Studio 2", -1));
+			Console.WriteLine(workerNoFile.TryWrite("Text from Visual Studio 2", 10));
+
+			Console.WriteLine(FileWorker.TryWrite("Text from" +
+				" Visual Studio 2", FULL_PATH_NO_FILE, 0));
+			Console.WriteLine(FileWorker.TryWrite("Text from" +
+				" Visual Studio 2", FULL_PATH_NO_FILE, -1));
+			Console.WriteLine(FileWorker.TryWrite("Text from" +
+				" Visual Studio 2", FULL_PATH_NO_FILE, 10));
 			*/
 
-			Console.WriteLine(writeNoFile.TryWrite("Text from Visual Studio 2", 10));
+			Console.WriteLine(workerNoFile.TryWrite("Text from Visual Studio XLSX"));
 		}
 	}
 }
