@@ -775,7 +775,7 @@ namespace TestFileWorkingUtils
 			bool expected = worker.TryWrite(STRING_TO_FILE, 0);
 
 			// Act
-			bool actual = true;
+			bool actual = false;
 
 			// Assert
 			Assert.Equal(actual, expected);
@@ -798,7 +798,7 @@ namespace TestFileWorkingUtils
 			bool expected = FileWorker.TryWrite(STRING_TO_FILE, FULL_PATH, 0);
 
 			// Act
-			bool actual = true;
+			bool actual = false;
 
 			// Assert
 			Assert.Equal(actual, expected);
