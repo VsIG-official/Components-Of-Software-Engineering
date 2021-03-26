@@ -915,7 +915,7 @@ namespace TestFileWorkingUtils
 		#region WriteTXT
 
 		/// <summary>
-		/// Test public method TryWrite using constructor
+		/// Test public method Write using constructor
 		/// Check if we create txt file
 		/// </summary>
 		[Fact]
@@ -938,7 +938,7 @@ namespace TestFileWorkingUtils
 		}
 
 		/// <summary>
-		/// Test public method TryWrite using class
+		/// Test public method Write using class
 		/// Check if we create txt file
 		/// </summary>
 		[Fact]
