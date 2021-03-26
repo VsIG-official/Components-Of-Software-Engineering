@@ -67,6 +67,10 @@ namespace Lab2
 				@"Software-Engineering\Labs\Lab2\Lab2\" +
 				@"TestFiles\CopyDir\CopyFileTXT.txt";
 
+			const string FULL_PATH_COPY_FILE_FROM_FALSE = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\" +
+				@"TestFiles\NoDir\CopyFileTXT.txt";
+
 			FileWorker worker = new(FULL_PATH);
 
 			FileWorker workerNoFile = new(FULL_PATH_NO_FILE_WRITE_CSV);
@@ -169,8 +173,10 @@ namespace Lab2
 
 			// Console.WriteLine(FileWorker.MkDir(FULL_PATH_CREATE_DIR));
 
+			/*
 			Console.WriteLine(FileWorker.TryCopy(FULL_PATH_COPY_FILE_FROM,
 				FULL_PATH_COPY_FILE_TO, true));
+			*/
 		}
 	}
 }

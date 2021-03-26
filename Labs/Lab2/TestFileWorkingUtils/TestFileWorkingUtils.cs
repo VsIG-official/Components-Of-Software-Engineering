@@ -1,5 +1,6 @@
 using IIG.Core.FileWorkingUtils;
 using Xunit;
+using System.IO;
 
 namespace TestFileWorkingUtils
 {
@@ -1201,5 +1202,37 @@ namespace TestFileWorkingUtils
 		}
 
 		#endregion IsPathValid
+
+		#region TryCopy
+
+		/// <summary>
+		/// Test public method TryCopy
+		/// Check if file can be created with rewriting
+		/// </summary>
+		[Fact]
+		public void TryCopyLatinNoRewriteFileExists_Path_ReturnsFalse()
+		{
+			// Arrange
+			const string FULL_PATH_FROM = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\CopyFileTestFromFalse1.txt";
+
+			const string FULL_PATH_TO = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\CopyDir\CopyFileTestToFalse1.txt";
+
+			bool expected = FileWorker.TryCopy(FULL_PATH_FROM,
+				FULL_PATH_TO, false);
+
+			// Act
+			bool actual = true;
+
+			File.Delete(FULL_PATH_TO);
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		#endregion TryCopy
 	}
 }
