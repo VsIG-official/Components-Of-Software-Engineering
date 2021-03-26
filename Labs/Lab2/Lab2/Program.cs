@@ -22,27 +22,42 @@ namespace Lab2
 			const string FULL_PATH_CSV = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TempFileCSV.csv";
 
-			const string FULL_PATH_NO_FILE = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\WriteFile.txt";
+			const string FULL_PATH_NO_TRY_FILE = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TryWriteFile.txt";
 
 			const string FULL_PATH_NO_DIR = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\NoDir\NoDirFile.txt";
 
-			const string FULL_PATH_NO_FILE_MD = @"D:\ForStudy\Components-Of-" +
+			const string FULL_PATH_NO_FILE_TRY_MD = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TryWriteFileMD.md";
+
+			const string FULL_PATH_NO_FILE_TRY_XML = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TryWriteFileXML.xml";
+
+			const string FULL_PATH_NO_FILE_TRY_CSV = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TryWriteFileCSV.csv";
+
+			const string FULL_PATH_NO_FILE_TRY_XLSX = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TryWriteFileXLSX.xlsx";
+
+			const string FULL_PATH_NO_FILE_WRITE_TXT = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\WriteFileTXT.txt";
+
+			const string FULL_PATH_NO_FILE_WRITE_MD = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\WriteFileMD.md";
 
-			const string FULL_PATH_NO_FILE_XML = @"D:\ForStudy\Components-Of-" +
+			const string FULL_PATH_NO_FILE_WRITE_XML = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\WriteFileXML.xml";
 
-			const string FULL_PATH_NO_FILE_CSV = @"D:\ForStudy\Components-Of-" +
+			const string FULL_PATH_NO_FILE_WRITE_CSV = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\WriteFileCSV.csv";
 
-			const string FULL_PATH_NO_FILE_XLSX = @"D:\ForStudy\Components-Of-" +
+			const string FULL_PATH_NO_FILE_WRITE_XLSX = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\WriteFileXLSX.xlsx";
 
 			FileWorker worker = new(FULL_PATH);
 
-			FileWorker workerNoFile = new(FULL_PATH_NO_FILE_XLSX);
+			FileWorker workerNoFile = new(FULL_PATH_NO_FILE_WRITE_CSV);
 
 			// FileWorker writeNoDir = new(FULL_PATH_NO_DIR);
 
@@ -133,7 +148,8 @@ namespace Lab2
 			Console.WriteLine(workerNoFile.TryWrite("Text from Visual Studio XLSX"));
 			*/
 
-			Console.WriteLine(worker.Write("Text from Visual Studio"));
+			Console.WriteLine(FileWorker.Write("Text from Visual Studio" +
+				" WRITE CSV", FULL_PATH_NO_FILE_WRITE_TXT);
 		}
 	}
 }
