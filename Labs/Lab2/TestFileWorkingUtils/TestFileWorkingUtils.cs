@@ -755,11 +755,11 @@ namespace TestFileWorkingUtils
 
 		#endregion TryWriteCSV
 
-		#region TryWriteTXT
+		#region TryWriteZeroTries
 
 		/// <summary>
 		/// Test public method TryWrite using constructor
-		/// Check if we can't create txt file
+		/// Check if we can't create txt file with Zero tries
 		/// </summary>
 		[Fact]
 		public void TryWriteTXTFromConstructorZeroTries_None_ReturnsFalse()
@@ -783,7 +783,7 @@ namespace TestFileWorkingUtils
 
 		/// <summary>
 		/// Test public method TryWrite using class
-		/// Check if we can't create txt file
+		/// Check if we can't create txt file with Zero tries
 		/// </summary>
 		[Fact]
 		public void TryWriteTXTFromClassZeroTries_Path_ReturnsFalse()
@@ -804,7 +804,109 @@ namespace TestFileWorkingUtils
 			Assert.Equal(actual, expected);
 		}
 
-		#endregion TryWriteTXT
+		#endregion TryWriteZeroTries
+
+		#region TryWriteNegativeTries
+
+		/// <summary>
+		/// Test public method TryWrite using constructor
+		/// Check if we can't create txt file with Negative tries
+		/// </summary>
+		[Fact]
+		public void TryWriteTXTFromConstructorNegativeTries_None_ReturnsFalse()
+		{
+			// Arrange
+			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\TestWriteFileConstructorNegativeTriesTXT.txt";
+			const string STRING_TO_FILE = "Text from test " +
+				"Negative Tries Constructor TXT";
+			FileWorker worker = new(FULL_PATH);
+
+			bool expected = worker.TryWrite(STRING_TO_FILE, -1);
+
+			// Act
+			bool actual = false;
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		/// <summary>
+		/// Test public method TryWrite using class
+		/// Check if we can't create txt file with Negative tries
+		/// </summary>
+		[Fact]
+		public void TryWriteTXTFromClassNegativeTries_Path_ReturnsFalse()
+		{
+			// Arrange
+			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\TestWriteFileClassNegativeTriesTXT.txt";
+			const string STRING_TO_FILE = "Text from test " +
+				"Negative Tries Class TXT";
+
+			bool expected = FileWorker.TryWrite(STRING_TO_FILE, FULL_PATH, -1);
+
+			// Act
+			bool actual = false;
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		#endregion TryWriteZeroTries
+
+		#region TryWriteManyTries
+
+		/// <summary>
+		/// Test public method TryWrite using constructor
+		/// Check if we can create txt file with Many tries
+		/// </summary>
+		[Fact]
+		public void TryWriteTXTFromConstructorManyTries_None_ReturnsTrue()
+		{
+			// Arrange
+			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\TestWriteFileConstructorManyTriesTXT.txt";
+			const string STRING_TO_FILE = "Text from test " +
+				"Many Tries Constructor TXT";
+			FileWorker worker = new(FULL_PATH);
+
+			bool expected = worker.TryWrite(STRING_TO_FILE, 10);
+
+			// Act
+			bool actual = true;
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		/// <summary>
+		/// Test public method TryWrite using class
+		/// Check if we can create txt file with Many tries
+		/// </summary>
+		[Fact]
+		public void TryWriteTXTFromClassManyTries_Path_ReturnsTrue()
+		{
+			// Arrange
+			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\TestWriteFileClassManyTriesTXT.txt";
+			const string STRING_TO_FILE = "Text from test " +
+				"Many Tries Class TXT";
+
+			bool expected = FileWorker.TryWrite(STRING_TO_FILE, FULL_PATH, 10);
+
+			// Act
+			bool actual = true;
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		#endregion TryWriteManyTries
 
 		#endregion TryWrite
 	}
