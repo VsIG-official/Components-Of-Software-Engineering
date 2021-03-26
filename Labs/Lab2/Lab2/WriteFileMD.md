@@ -1,1 +1,1 @@
-Text from Visual Studio WRITE MD
+Text from Visual Studio Class WRITE MD
