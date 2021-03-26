@@ -1155,5 +1155,51 @@ namespace TestFileWorkingUtils
 		}
 
 		#endregion IsPathValid
+
+		#region MkDir
+
+		/// <summary>
+		/// Test public method MkDir
+		/// Check if the path is created
+		/// </summary>
+		[Fact]
+		public void MkDirLatin_Path_ReturnsPathString()
+		{
+			// Arrange
+			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\NoDirCreate";
+
+			string expected = FileWorker.MkDir(FULL_PATH);
+
+			// Act
+			string actual = FULL_PATH;
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		/// <summary>
+		/// Test public method MkDir
+		/// Check if the path with cyrillic is created
+		/// </summary>
+		[Fact]
+		public void MkDirCyrillic_Path_ReturnsPathString()
+		{
+			// Arrange
+			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\НемаДиректоріїCreate";
+
+			string expected = FileWorker.MkDir(FULL_PATH);
+
+			// Act
+			string actual = FULL_PATH;
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		#endregion IsPathValid
 	}
 }

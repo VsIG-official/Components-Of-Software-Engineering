@@ -55,6 +55,18 @@ namespace Lab2
 			const string FULL_PATH_NO_FILE_WRITE_XLSX = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\WriteFileXLSX.xlsx";
 
+			const string FULL_PATH_CREATE_DIR = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\" +
+				@"TestFiles\NoDirCreate";
+
+			const string FULL_PATH_COPY_FILE_FROM = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\" +
+				@"TestFiles\CopyFileTXT.txt";
+
+			const string FULL_PATH_COPY_FILE_TO = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\" +
+				@"TestFiles\CopyDir\CopyFileTXT.txt";
+
 			FileWorker worker = new(FULL_PATH);
 
 			FileWorker workerNoFile = new(FULL_PATH_NO_FILE_WRITE_CSV);
@@ -153,7 +165,12 @@ namespace Lab2
 				" Class WRITE CSV", FULL_PATH_NO_FILE_WRITE_CSV));
 			*/
 
-			Console.WriteLine(FileWorker.IsPathValid(FULL_PATH));
+			// Console.WriteLine(FileWorker.IsPathValid(FULL_PATH_NO_DIR));
+
+			// Console.WriteLine(FileWorker.MkDir(FULL_PATH_CREATE_DIR));
+
+			Console.WriteLine(FileWorker.TryCopy(FULL_PATH_COPY_FILE_FROM,
+				FULL_PATH_COPY_FILE_TO, true));
 		}
 	}
 }
