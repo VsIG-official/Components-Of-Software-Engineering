@@ -1206,20 +1206,20 @@ namespace TestFileWorkingUtils
 		#region TryCopy
 
 		/// <summary>
-		/// Test public method TryCopy
-		/// Check if file can be created with rewriting
+		/// Test public method TryCopy Latin
+		/// Check if file can be created without rewriting
 		/// </summary>
 		[Fact]
-		public void TryCopyLatinNoRewriteFileExists_Path_ReturnsFalse()
+		public void TryCopyLatinNoRewrite_Path_ReturnsTrue()
 		{
 			// Arrange
 			const string FULL_PATH_FROM = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\CopyFileTestFromFalse1.txt";
+				@"\CopyFileTestFromTrue1.txt";
 
 			const string FULL_PATH_TO = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\CopyDir\CopyFileTestToFalse1.txt";
+				@"\CopyDir\CopyFileTestToTrue1.txt";
 
 			bool expected = FileWorker.TryCopy(FULL_PATH_FROM,
 				FULL_PATH_TO, false);
@@ -1228,6 +1228,138 @@ namespace TestFileWorkingUtils
 			bool actual = true;
 
 			File.Delete(FULL_PATH_TO);
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		/// <summary>
+		/// Test public method TryCopy Latin
+		/// Check if file can be created with rewriting
+		/// </summary>
+		[Fact]
+		public void TryCopyLatinYesRewrite_Path_ReturnsTrue()
+		{
+			// Arrange
+			const string FULL_PATH_FROM = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\CopyFileTestFromTrue2.txt";
+
+			const string FULL_PATH_TO = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\CopyDir\CopyFileTestToTrue2.txt";
+
+			bool expected = FileWorker.TryCopy(FULL_PATH_FROM,
+				FULL_PATH_TO, true);
+
+			// Act
+			bool actual = true;
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		/// <summary>
+		/// Test public method TryCopy Cyrillic
+		/// Check if file can be created without rewriting
+		/// </summary>
+		[Fact]
+		public void TryCopyCyrillicNoRewrite_Path_ReturnsTrue()
+		{
+			// Arrange
+			const string FULL_PATH_FROM = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\‘‡ÈÎƒÎˇ ÓÔ≥˛‚‡ÌÌˇTestFromTrue3.txt";
+
+			const string FULL_PATH_TO = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\CopyDir\‘‡ÈÎƒÎˇ ÓÔ≥˛‚‡ÌÌˇTestToTrue3.txt";
+
+			bool expected = FileWorker.TryCopy(FULL_PATH_FROM,
+				FULL_PATH_TO, false);
+
+			// Act
+			bool actual = true;
+
+			File.Delete(FULL_PATH_TO);
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		/// <summary>
+		/// Test public method TryCopy Cyrillic
+		/// Check if file can be created with rewriting
+		/// </summary>
+		[Fact]
+		public void TryCopyCyrillicYesRewrite_Path_ReturnsTrue()
+		{
+			// Arrange
+			const string FULL_PATH_FROM = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\‘‡ÈÎƒÎˇ ÓÔ≥˛‚‡ÌÌˇTestFromTrue4.txt";
+
+			const string FULL_PATH_TO = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\CopyDir\‘‡ÈÎƒÎˇ ÓÔ≥˛‚‡ÌÌˇTestToTrue4.txt";
+
+			bool expected = FileWorker.TryCopy(FULL_PATH_FROM,
+				FULL_PATH_TO, true);
+
+			// Act
+			bool actual = true;
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		/// <summary>
+		/// Test public method TryCopy Latin
+		/// Check if file can not be created without rewriting
+		/// </summary>
+		[Fact]
+		public void TryCopyLatinNoRewrite_Path_ReturnsFalse()
+		{
+			// Arrange
+			const string FULL_PATH_FROM = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\SomeRandomFile.txt";
+
+			const string FULL_PATH_TO = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\CopyDir\SomeRandomFile.txt";
+
+			bool expected = FileWorker.TryCopy(FULL_PATH_FROM,
+				FULL_PATH_TO, false);
+
+			// Act
+			bool actual = false;
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		/// <summary>
+		/// Test public method TryCopy Cyrillic
+		/// Check if file can not be created with rewriting
+		/// </summary>
+		[Fact]
+		public void TryCopyCyrillicYesRewrite_Path_ReturnsFalse()
+		{
+			// Arrange
+			const string FULL_PATH_FROM = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\¬ËÔ‡‰ÍÓ‚ËÈ‘‡ÈÎ.txt";
+
+			const string FULL_PATH_TO = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\CopyDir\¬ËÔ‡‰ÍÓ‚ËÈ‘‡ÈÎ.txt";
+
+			bool expected = FileWorker.TryCopy(FULL_PATH_FROM,
+				FULL_PATH_TO, true);
+
+			// Act
+			bool actual = false;
 
 			// Assert
 			Assert.Equal(actual, expected);
