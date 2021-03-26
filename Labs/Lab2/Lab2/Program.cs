@@ -148,8 +148,12 @@ namespace Lab2
 			Console.WriteLine(workerNoFile.TryWrite("Text from Visual Studio XLSX"));
 			*/
 
+			/*
 			Console.WriteLine(FileWorker.Write("Text from Visual Studio" +
 				" Class WRITE CSV", FULL_PATH_NO_FILE_WRITE_CSV));
+			*/
+
+			Console.WriteLine(FileWorker.IsPathValid(FULL_PATH));
 		}
 	}
 }

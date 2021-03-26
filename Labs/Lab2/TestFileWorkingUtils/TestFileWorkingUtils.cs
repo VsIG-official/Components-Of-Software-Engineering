@@ -961,6 +961,199 @@ namespace TestFileWorkingUtils
 
 		#endregion WriteTXT
 
+		#region WriteMD
+
+		/// <summary>
+		/// Test public method Write using constructor
+		/// Check if we create md file
+		/// </summary>
+		[Fact]
+		public void WriteMDFromConstructor_None_ReturnsTrue()
+		{
+			// Arrange
+			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\TestWriteFileConstructorMD.md";
+			const string STRING_TO_FILE = "Text from test Constructor MD";
+			FileWorker worker = new(FULL_PATH);
+
+			bool expected = worker.TryWrite(STRING_TO_FILE);
+
+			// Act
+			bool actual = true;
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		/// <summary>
+		/// Test public method Write using class
+		/// Check if we create md file
+		/// </summary>
+		[Fact]
+		public void WriteMDFromClass_Path_ReturnsTrue()
+		{
+			// Arrange
+			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\TestWriteFileClassMD.md";
+			const string STRING_TO_FILE = "Text from test Class MD";
+
+			bool expected = FileWorker.TryWrite(STRING_TO_FILE, FULL_PATH);
+
+			// Act
+			bool actual = true;
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		#endregion WriteMD
+
+		#region WriteXML
+
+		/// <summary>
+		/// Test public method Write using constructor
+		/// Check if we create xml file
+		/// </summary>
+		[Fact]
+		public void WriteXMLFromConstructor_None_ReturnsTrue()
+		{
+			// Arrange
+			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\TestWriteFileConstructorXML.xml";
+			const string STRING_TO_FILE = "Text from test Constructor XML";
+			FileWorker worker = new(FULL_PATH);
+
+			bool expected = worker.TryWrite(STRING_TO_FILE);
+
+			// Act
+			bool actual = true;
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		/// <summary>
+		/// Test public method Write using class
+		/// Check if we create xml file
+		/// </summary>
+		[Fact]
+		public void WriteXMLFromClass_Path_ReturnsTrue()
+		{
+			// Arrange
+			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\TestWriteFileClassXML.xml";
+			const string STRING_TO_FILE = "Text from test Class XML";
+
+			bool expected = FileWorker.TryWrite(STRING_TO_FILE, FULL_PATH);
+
+			// Act
+			bool actual = true;
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		#endregion WriteXML
+
+		#region WriteCSV
+
+		/// <summary>
+		/// Test public method Write using constructor
+		/// Check if we create csv file
+		/// </summary>
+		[Fact]
+		public void WriteCSVFromConstructor_None_ReturnsTrue()
+		{
+			// Arrange
+			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\TestWriteFileConstructorCSV.csv";
+			const string STRING_TO_FILE = "Text from test Constructor CSV";
+			FileWorker worker = new(FULL_PATH);
+
+			bool expected = worker.TryWrite(STRING_TO_FILE);
+
+			// Act
+			bool actual = true;
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		/// <summary>
+		/// Test public method Write using class
+		/// Check if we create csv file
+		/// </summary>
+		[Fact]
+		public void WriteCSVFromClass_Path_ReturnsTrue()
+		{
+			// Arrange
+			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\TestWriteFileClassCSV.csv";
+			const string STRING_TO_FILE = "Text from test Class CSV";
+
+			bool expected = FileWorker.TryWrite(STRING_TO_FILE, FULL_PATH);
+
+			// Act
+			bool actual = true;
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		#endregion WriteCSV
+
 		#endregion Write
+
+		#region IsPathValid
+
+		/// <summary>
+		/// Test public method IsPathValid
+		/// Check if the path is valid
+		/// </summary>
+		[Fact]
+		public void IsPathValid_Path_ReturnsTrue()
+		{
+			// Arrange
+			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\IsPathValidTrue.txt";
+
+			bool expected = FileWorker.IsPathValid(FULL_PATH);
+
+			// Act
+			bool actual = true;
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		/// <summary>
+		/// Test public method IsPathValid
+		/// Check if the path is not valid
+		/// </summary>
+		[Fact]
+		public void IsPathValid_Path_ReturnsFalse()
+		{
+			// Arrange
+			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
+				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
+				@"\IsPathValidFalse.txt";
+
+			bool expected = FileWorker.IsPathValid(FULL_PATH);
+
+			// Act
+			bool actual = true;
+
+			// Assert
+			Assert.Equal(actual, expected);
+		}
+
+		#endregion IsPathValid
 	}
 }
