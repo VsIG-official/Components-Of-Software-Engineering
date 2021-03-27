@@ -1,7 +1,7 @@
 # Components-Of-Software-Engineering
 
 <p align="center">
-  <img src="https://github.com/VsIG-official/Images/blob/master/LogoFinalWhite.png" data-canonical-src="https://github.com/VsIG-official/Images/blob/master/LogoFinalWhite.png" width="200" height="100" />
+  <img src="https://github.com/VsIG-official/Components-Of-Software-Engineering/blob/master/Images/test.png" data-canonical-src="https://github.com/VsIG-official/Components-Of-Software-Engineering/blob/master/Images/test.png" />
 </p>
 
 ## Table of Contents
