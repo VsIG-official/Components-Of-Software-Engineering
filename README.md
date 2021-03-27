@@ -23,7 +23,7 @@ This repo was created for subject "Components Of Software Engineering" and have 
 
 ---
 
-## Example (Optional)
+## Example
 
 ```csharp
 /// <summary>
