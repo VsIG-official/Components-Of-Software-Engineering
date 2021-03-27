@@ -1190,7 +1190,7 @@ namespace TestFileWorkingUtils
 			// Arrange
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\НемаДиректоріїCreate";
+				@"\РќРµРјР°Р”РёСЂРµРєС‚РѕСЂС–С—Create";
 
 			string expected = FileWorker.MkDir(FULL_PATH);
 
@@ -1269,11 +1269,11 @@ namespace TestFileWorkingUtils
 			// Arrange
 			const string FULL_PATH_FROM = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\ФайлДляКопіюванняTestFromTrue3.txt";
+				@"\Р¤Р°Р№Р»Р”Р»СЏРљРѕРїС–СЋРІР°РЅРЅСЏTestFromTrue3.txt";
 
 			const string FULL_PATH_TO = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\CopyDir\ФайлДляКопіюванняTestToTrue3.txt";
+				@"\CopyDir\Р¤Р°Р№Р»Р”Р»СЏРљРѕРїС–СЋРІР°РЅРЅСЏTestToTrue3.txt";
 
 			bool expected = FileWorker.TryCopy(FULL_PATH_FROM,
 				FULL_PATH_TO, false);
@@ -1297,11 +1297,11 @@ namespace TestFileWorkingUtils
 			// Arrange
 			const string FULL_PATH_FROM = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\ФайлДляКопіюванняTestFromTrue4.txt";
+				@"\Р¤Р°Р№Р»Р”Р»СЏРљРѕРїС–СЋРІР°РЅРЅСЏTestFromTrue4.txt";
 
 			const string FULL_PATH_TO = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\CopyDir\ФайлДляКопіюванняTestToTrue4.txt";
+				@"\CopyDir\Р¤Р°Р№Р»Р”Р»СЏРљРѕРїС–СЋРІР°РЅРЅСЏTestToTrue4.txt";
 
 			bool expected = FileWorker.TryCopy(FULL_PATH_FROM,
 				FULL_PATH_TO, true);
@@ -1349,11 +1349,11 @@ namespace TestFileWorkingUtils
 			// Arrange
 			const string FULL_PATH_FROM = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\ВипадковийФайл.txt";
+				@"\Р’РёРїР°РґРєРѕРІРёР№Р¤Р°Р№Р».txt";
 
 			const string FULL_PATH_TO = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TestFiles" +
-				@"\CopyDir\ВипадковийФайл.txt";
+				@"\CopyDir\Р’РёРїР°РґРєРѕРІРёР№Р¤Р°Р№Р».txt";
 
 			bool expected = FileWorker.TryCopy(FULL_PATH_FROM,
 				FULL_PATH_TO, true);
