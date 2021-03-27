@@ -13,11 +13,13 @@
 
 ### Description
 
-> Subtitle or Short Description Goes Here
+This repo was created for subject "Components Of Software Engineering" and have My labs
 
 ## Badges
 
-[![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger) [![Dependency Status](http://img.shields.io/gemnasium/badges/badgerbadgerbadger.svg?style=flat-square)](https://gemnasium.com/badges/badgerbadgerbadger) [![Gem Version](http://img.shields.io/gem/v/badgerbadgerbadger.svg?style=flat-square)](https://rubygems.org/gems/badgerbadgerbadger) [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org) [![Badges](http://img.shields.io/:badges-9/9-ff6799.svg?style=flat-square)](https://github.com/badges/badgerbadgerbadger)
+> [![Theme](https://img.shields.io/badge/Theme-Testing-blue?style=flat-square)](https://en.wikipedia.org/wiki/Software_testing)
+> [![Language](https://img.shields.io/badge/Language-CSharp-purple?style=flat-square)](https://en.wikipedia.org/wiki/C_Sharp_(programming_language))
+> [![License](http://img.shields.io/:License-MIT-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 ---
 
