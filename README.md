@@ -27,33 +27,26 @@ This repo was created for subject "Components Of Software Engineering" and have 
 
 ```csharp
 /// <summary>
-	/// Class for Api Client
-	/// </summary>
-	public static class ApiHelper
-	{
-		// Create static, 'cause We need one client per application
-		public static HttpClient ApiClient { get; set; }
+/// Test public property FilePath
+/// Check if we get exact string as it is in constructor
+/// </summary>
+[Fact]
+public void FilePath_None_ReturnsSameString()
+{
+	// Arrange
+	const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
+		@"Software-Engineering\Labs\Lab2\Lab2\TempFile.txt";
+	FileWorker worker = new(FULL_PATH);
 
-		/// <summary>
-		/// Initializes API client
-		/// </summary>
-		public static void Initialize()
-		{
-			ApiClient = new HttpClient
-			{
-				// a lot of adresses will begin with the same string,
-				// so We can put the beginning here
-				// but won't, because We need more than one adress
-				/*
-				BaseAddress = new Uri("http://somesite.com/")
-				*/
-			};
-			ApiClient.DefaultRequestHeaders.Accept.Clear();
-			// give Us json, not webpage or etc.
-			ApiClient.DefaultRequestHeaders.Accept.Add(new
-				MediaTypeWithQualityHeaderValue("application/json"));
-		}
-	}
+	string expected = worker.FilePath;
+
+	// Act
+	string actual = @"D:\ForStudy\Components-Of-" +
+		@"Software-Engineering\Labs\Lab2\Lab2\TempFile.txt";
+
+	// Assert
+	Assert.Equal(actual, expected);
+}
 ```
 
 ---
