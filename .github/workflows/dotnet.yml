@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Change Dir
-      run: msbuild TestLibrary.csproj
+      run: msbuild Lab2.sln
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
