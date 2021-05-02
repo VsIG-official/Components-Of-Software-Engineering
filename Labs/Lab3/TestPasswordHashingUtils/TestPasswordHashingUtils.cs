@@ -288,10 +288,10 @@ namespace TestPasswordHashingUtils
 
 			/// <summary>
 			/// Test Execution Route 0_1_6 with null, null and zero
-			/// Should be Equal
+			/// Should be Null
 			/// </summary>
 			[Fact]
-			public void ExecRoute_0_1_6_Null_NullAndZero_Null()
+			public void ExecRoute_0_1_6_NullNullAndZero_Null()
 			{
 				// Arrange
 				SetDefaultValues();
@@ -312,24 +312,24 @@ namespace TestPasswordHashingUtils
 			#region 0_1_2_3_6_7
 
 			/// <summary>
-			/// Test Execution Route 0_1_2_3_6_7 with null, null and zero
-			/// Should be Equal
+			/// Test Execution Route 0_1_2_3_6_7 with not null, not null and positive
+			/// Should be not Null
 			/// </summary>
 			[Fact]
-			public void ExecRoute_0_1_2_3_6_7_Null_NullAndZero_Null()
+			public void ExecRoute_0_1_2_3_6_7_NotNullNotNullAndPositive_NotNull()
 			{
 				// Arrange
 				SetDefaultValues();
 
-				const string SALT = null;
-				const uint ADLER_MOD = 0;
-				const string PASSWORD = null;
+				const string SALT = "Some new cool salt";
+				const uint ADLER_MOD = 3;
+				const string PASSWORD = "Dominskyi";
 
 				// Act
 				string actual = PasswordHasher.GetHash(PASSWORD, SALT, ADLER_MOD);
 
 				// Assert
-				Assert.Null(actual);
+				Assert.NotNull(actual);
 			}
 
 			#endregion 0_1_2_3_6_7
@@ -337,7 +337,7 @@ namespace TestPasswordHashingUtils
 		}
 
 		#endregion GetHash
-		//"Dominskyi";
+
 		#endregion ExecutionRoutes
 	}
 }
