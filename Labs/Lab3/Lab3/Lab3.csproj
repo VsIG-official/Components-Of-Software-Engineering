@@ -5,4 +5,10 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="IIG.PasswordHashingUtils">
+      <HintPath>..\Libraries\IIG.PasswordHashingUtils\IIG.PasswordHashingUtils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
