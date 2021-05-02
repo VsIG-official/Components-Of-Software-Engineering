@@ -9,6 +9,7 @@ namespace TestPasswordHashingUtils
 	/// </summary>
 	public class TestPasswordHashingUtils
 	{
+
 		/// <summary>
 		/// Sets the default values for PasswordHasher
 		/// </summary>
@@ -44,7 +45,7 @@ namespace TestPasswordHashingUtils
 			/// Should be  Equal
 			/// </summary>
 			[Fact]
-			public void ExecRoute_0_1_6_NullAndZero_Equal()
+			public void ExecRoute_0_1_6_IsNullAndZero_Equal()
 			{
 				// Arrange
 				SetDefaultValues();
@@ -154,13 +155,14 @@ namespace TestPasswordHashingUtils
 			[Fact]
 			public void ExecRoute_0_1_2_4_6_NotEmptyAndZero_NotEqual()
 			{
+				SetDefaultValues();
+
 				const string SALT = "Some cool salt";
 				const uint ADLER_MOD = 0;
+
 				try
 				{
 					// Arrange
-					SetDefaultValues();
-
 					const string PASSWORD = "Dominskyi";
 
 					string expected = PasswordHasher.GetHash(PASSWORD);
@@ -333,6 +335,33 @@ namespace TestPasswordHashingUtils
 			}
 
 			#endregion 0_1_2_3_6_7
+
+			#region 0_1_2_3_5_6_7
+
+			/// <summary>
+			/// Test Execution Route 0_1_2_3_5_6_7 with not null, not null and positive
+			/// Should be not Null
+			/// </summary>
+			[Fact]
+			public void ExecRoute_0_1_2_3_5_6_7_NotNullNotNullAndPositive_OverflowExceptionAndNotNull()
+			{
+				// Arrange
+				SetDefaultValues();
+
+				// Let's pretend, that there We have REALLY large string
+				const string SALT = "Some REALLY BIG, new and cool salt";
+				const uint ADLER_MOD = 3;
+				const string PASSWORD = "Dominskyi";
+
+				// Act
+				string actual = PasswordHasher.GetHash(PASSWORD, SALT, ADLER_MOD);
+
+				// Assert
+				Assert.Throws<OverflowException>(() => PasswordHasher.Init(SALT, ADLER_MOD));
+				Assert.NotNull(actual);
+			}
+
+			#endregion 0_1_2_3_5_6_7
 
 		}
 
