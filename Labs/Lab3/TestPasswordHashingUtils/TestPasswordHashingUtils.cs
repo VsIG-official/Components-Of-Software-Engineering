@@ -78,7 +78,51 @@ namespace TestPasswordHashingUtils
 
 			#region 0_1_5_6
 
+			/// <summary>
+			/// Test Execution Route 0_1_6 with Empty and Positive
+			/// Should return true
+			/// </summary>
+			[Fact]
+			public void ExecRoute_0_1_5_6_EmptyAndPositive_True()
+			{
+				// Arrange
+				const string SALT = "";
+				const uint ADLER_MOD = 1;
+				const string PASSWORD = "Dominskyi";
 
+				string expected = PasswordHasher.GetHash(PASSWORD);
+
+				// Act
+				PasswordHasher.Init(SALT, ADLER_MOD);
+
+				string actual = PasswordHasher.GetHash(PASSWORD);
+
+				// Assert
+				Assert.NotEqual(actual, expected);
+			}
+
+			/// <summary>
+			/// Test Execution Route 0_1_6 with null and Positive
+			/// Should return true
+			/// </summary>
+			[Fact]
+			public void ExecRoute_0_1_5_6_NullAndPositive_True()
+			{
+				// Arrange
+				const string SALT = null;
+				const uint ADLER_MOD = 1;
+				const string PASSWORD = "Dominskyi";
+
+				string expected = PasswordHasher.GetHash(PASSWORD);
+
+				// Act
+				PasswordHasher.Init(SALT, ADLER_MOD);
+
+				string actual = PasswordHasher.GetHash(PASSWORD);
+
+				// Assert
+				Assert.NotEqual(actual, expected);
+			}
 
 			#endregion 0_1_5_6
 
