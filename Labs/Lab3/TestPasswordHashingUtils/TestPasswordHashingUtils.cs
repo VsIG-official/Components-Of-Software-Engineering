@@ -1,5 +1,6 @@
 using System;
 using Xunit;
+using IIG.PasswordHashingUtils;
 
 namespace TestPasswordHashingUtils
 {
@@ -8,6 +9,14 @@ namespace TestPasswordHashingUtils
 	/// </summary>
 	public class TestPasswordHashingUtils
 	{
+
+		/*
+		Naming:
+		1. Execution Route being tested.
+		2. The scenario under which it's being tested.
+		3. The expected behavior when the scenario is invoked.
+		*/
+
 		#region ExecutionRoutes
 
 		#region Init
@@ -17,11 +26,33 @@ namespace TestPasswordHashingUtils
 		/// </summary>
 		public class TestInit
 		{
-			[Fact]
-			public void Test1()
-			{
+			#region 0_1_6
 
+			/// <summary>
+			/// Test Execution Route 0_1_6 with null and zero
+			/// Should return true
+			/// </summary>
+			[Fact]
+			public void ExecRoute_0_1_6_NullAndZero_True()
+			{
+				// Arrange
+				const string SALT = null;
+				const int ADLER_MOD = 0;
+				const string PASSWORD = "Dominskyi";
+
+				string expected = PasswordHasher.GetHash(PASSWORD);
+
+				// Act
+				PasswordHasher.Init(SALT, ADLER_MOD);
+
+				string actual = PasswordHasher.GetHash(PASSWORD);
+
+				// Assert
+				Assert.Equal(actual, expected);
 			}
+
+			#endregion 0_1_6
+
 		}
 
 		#endregion Init
