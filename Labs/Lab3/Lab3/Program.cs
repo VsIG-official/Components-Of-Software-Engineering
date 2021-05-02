@@ -9,7 +9,7 @@ namespace Lab3
 		{
 			try
 			{
-				string SALT = new('A', 1073741791);
+				string SALT = new('A', 1073741790);
 				const uint ADLER_MOD = 0;
 				const string PASSWORD = "Dominskyi";
 

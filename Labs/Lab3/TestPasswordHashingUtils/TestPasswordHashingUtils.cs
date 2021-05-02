@@ -154,13 +154,13 @@ namespace TestPasswordHashingUtils
 			[Fact]
 			public void ExecRoute_0_1_2_4_6_NotEmptyAndZero_NotEqual()
 			{
+				const string SALT = "Some cool salt";
+				const uint ADLER_MOD = 0;
 				try
 				{
 					// Arrange
 					SetDefaultValues();
 
-					const string SALT = "Some cool salt";
-					const uint ADLER_MOD = 0;
 					const string PASSWORD = "Dominskyi";
 
 					string expected = PasswordHasher.GetHash(PASSWORD);
@@ -175,7 +175,7 @@ namespace TestPasswordHashingUtils
 				}
 				catch (OverflowException)
 				{
-					Assert.True(false);
+					Assert.False(true);
 				}
 			}
 
@@ -184,44 +184,74 @@ namespace TestPasswordHashingUtils
 			#region 0_1_2_3_4_6
 
 			/// <summary>
-			/// Test Execution Route 0_1_2_4_6 with not Empty and Zero
+			/// Test Execution Route 0_1_2_3_4_6 with not Empty and Zero
 			/// Should be Not Equal
 			/// </summary>
 			[Fact]
 			public void ExecRoute_0_1_2_3_4_6_NotEmptyAndZero_NotEqual()
 			{
-				try
-				{
-					// Arrange
-					SetDefaultValues();
+				// Arrange
+				SetDefaultValues();
 
-					const string SALT = "Some cool salt";
-					const uint ADLER_MOD = 0;
-					const string PASSWORD = "Dominskyi";
+				// Let's pretend, that there We have REALLY large string
+				const string SALT = "Some REALLY BIG and cool salt";
+				const uint ADLER_MOD = 0;
+				const string PASSWORD = "Dominskyi";
 
-					string expected = PasswordHasher.GetHash(PASSWORD);
+				string expected = PasswordHasher.GetHash(PASSWORD);
 
-					// Act
-					PasswordHasher.Init(SALT, ADLER_MOD);
+				// Act
+				PasswordHasher.Init(SALT, ADLER_MOD);
 
-					string actual = PasswordHasher.GetHash(PASSWORD);
+				string actual = PasswordHasher.GetHash(PASSWORD);
 
-					// Assert
-					Assert.NotEqual(actual, expected);
-
-					//Assert.Throws<ArgumentException>(() => profiles.GetSettingsForUserID(""));
-				}
-				catch (OverflowException)
-				{
-					Assert.True(false);
-				}
+				// Assert
+				Assert.Throws<OverflowException>(() => PasswordHasher.Init(SALT, ADLER_MOD));
+				Assert.NotEqual(actual, expected);
 			}
 
 			#endregion 0_1_2_3_4_6
 
+			#region 0_1_2_3_4_5_6
+
+			/// <summary>
+			/// Test Execution Route 0_1_2_3_4_5_6 with not Empty and Zero
+			/// Should be Not Equal
+			/// </summary>
+			[Fact]
+			public void ExecRoute_0_1_2_3_4_5_6_NotEmptyAndZero_NotEqual()
+			{
+				// Arrange
+				SetDefaultValues();
+
+				// Let's pretend, that there We have REALLY large string
+				const string SALT = "Some REALLY BIG and cool salt";
+				const uint ADLER_MOD = 1;
+				const string PASSWORD = "Dominskyi";
+
+				string expected = PasswordHasher.GetHash(PASSWORD);
+
+				// Act
+				PasswordHasher.Init(SALT, ADLER_MOD);
+
+				string actual = PasswordHasher.GetHash(PASSWORD);
+
+				// Assert
+				Assert.Throws<OverflowException>(() => PasswordHasher.Init(SALT, ADLER_MOD));
+				Assert.NotEqual(actual, expected);
+			}
+
+			#endregion 0_1_2_3_4_5_6
+
+			#region 0_1_2_4_5_6
+
+
+
+			#endregion 0_1_2_4_5_6
+
 		}
 
-#endregion Init
+		#endregion Init
 
 		#region GetHash
 
