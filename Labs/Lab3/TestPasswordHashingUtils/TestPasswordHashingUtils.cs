@@ -37,7 +37,30 @@ namespace TestPasswordHashingUtils
 			{
 				// Arrange
 				const string SALT = null;
-				const int ADLER_MOD = 0;
+				const uint ADLER_MOD = 0;
+				const string PASSWORD = "Dominskyi";
+
+				string expected = PasswordHasher.GetHash(PASSWORD);
+
+				// Act
+				PasswordHasher.Init(SALT, ADLER_MOD);
+
+				string actual = PasswordHasher.GetHash(PASSWORD);
+
+				// Assert
+				Assert.Equal(actual, expected);
+			}
+
+			/// <summary>
+			/// Test Execution Route 0_1_6 with Empty and zero
+			/// Should return true
+			/// </summary>
+			[Fact]
+			public void ExecRoute_0_1_6_EmptyAndZero_True()
+			{
+				// Arrange
+				const string SALT = "";
+				const uint ADLER_MOD = 0;
 				const string PASSWORD = "Dominskyi";
 
 				string expected = PasswordHasher.GetHash(PASSWORD);
@@ -52,6 +75,12 @@ namespace TestPasswordHashingUtils
 			}
 
 			#endregion 0_1_6
+
+			#region 0_1_5_6
+
+
+
+			#endregion 0_1_5_6
 
 		}
 
