@@ -41,10 +41,10 @@ namespace TestPasswordHashingUtils
 
 			/// <summary>
 			/// Test Execution Route 0_1_6 with null and zero
-			/// Should return true
+			/// Should be  Equal
 			/// </summary>
 			[Fact]
-			public void ExecRoute_0_1_6_NullAndZero_True()
+			public void ExecRoute_0_1_6_NullAndZero_Equal()
 			{
 				// Arrange
 				SetDefaultValues();
@@ -66,10 +66,10 @@ namespace TestPasswordHashingUtils
 
 			/// <summary>
 			/// Test Execution Route 0_1_6 with Empty and zero
-			/// Should return true
+			/// Should be Equal
 			/// </summary>
 			[Fact]
-			public void ExecRoute_0_1_6_EmptyAndZero_True()
+			public void ExecRoute_0_1_6_EmptyAndZero_Equal()
 			{
 				// Arrange
 				SetDefaultValues();
@@ -94,11 +94,11 @@ namespace TestPasswordHashingUtils
 			#region 0_1_5_6
 
 			/// <summary>
-			/// Test Execution Route 0_1_6 with Empty and Positive
-			/// Should return true
+			/// Test Execution Route 0_1_5_6 with Empty and Positive
+			/// Should  be not Equal
 			/// </summary>
 			[Fact]
-			public void ExecRoute_0_1_5_6_EmptyAndPositive_True()
+			public void ExecRoute_0_1_5_6_EmptyAndPositive_NotEqual()
 			{
 				// Arrange
 				SetDefaultValues();
@@ -119,11 +119,11 @@ namespace TestPasswordHashingUtils
 			}
 
 			/// <summary>
-			/// Test Execution Route 0_1_6 with null and Positive
-			/// Should return true
+			/// Test Execution Route 0_1_5_6 with null and Positive
+			/// Should be not Equal
 			/// </summary>
 			[Fact]
-			public void ExecRoute_0_1_5_6_NullAndPositive_True()
+			public void ExecRoute_0_1_5_6_NullAndPositive_NotEqual()
 			{
 				// Arrange
 				SetDefaultValues();
@@ -145,9 +145,83 @@ namespace TestPasswordHashingUtils
 
 			#endregion 0_1_5_6
 
+			#region 0_1_2_4_6
+
+			/// <summary>
+			/// Test Execution Route 0_1_2_4_6 with not Empty and Zero
+			/// Should be Not Equal
+			/// </summary>
+			[Fact]
+			public void ExecRoute_0_1_2_4_6_NotEmptyAndZero_NotEqual()
+			{
+				try
+				{
+					// Arrange
+					SetDefaultValues();
+
+					const string SALT = "Some cool salt";
+					const uint ADLER_MOD = 0;
+					const string PASSWORD = "Dominskyi";
+
+					string expected = PasswordHasher.GetHash(PASSWORD);
+
+					// Act
+					PasswordHasher.Init(SALT, ADLER_MOD);
+
+					string actual = PasswordHasher.GetHash(PASSWORD);
+
+					// Assert
+					Assert.NotEqual(actual, expected);
+				}
+				catch (OverflowException)
+				{
+					Assert.True(false);
+				}
+			}
+
+			#endregion 0_1_2_4_6
+
+			#region 0_1_2_3_4_6
+
+			/// <summary>
+			/// Test Execution Route 0_1_2_4_6 with not Empty and Zero
+			/// Should be Not Equal
+			/// </summary>
+			[Fact]
+			public void ExecRoute_0_1_2_3_4_6_NotEmptyAndZero_NotEqual()
+			{
+				try
+				{
+					// Arrange
+					SetDefaultValues();
+
+					const string SALT = "Some cool salt";
+					const uint ADLER_MOD = 0;
+					const string PASSWORD = "Dominskyi";
+
+					string expected = PasswordHasher.GetHash(PASSWORD);
+
+					// Act
+					PasswordHasher.Init(SALT, ADLER_MOD);
+
+					string actual = PasswordHasher.GetHash(PASSWORD);
+
+					// Assert
+					Assert.NotEqual(actual, expected);
+
+					//Assert.Throws<ArgumentException>(() => profiles.GetSettingsForUserID(""));
+				}
+				catch (OverflowException)
+				{
+					Assert.True(false);
+				}
+			}
+
+			#endregion 0_1_2_3_4_6
+
 		}
 
-		#endregion Init
+#endregion Init
 
 		#region GetHash
 
