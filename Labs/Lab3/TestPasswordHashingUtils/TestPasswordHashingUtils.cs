@@ -9,6 +9,16 @@ namespace TestPasswordHashingUtils
 	/// </summary>
 	public class TestPasswordHashingUtils
 	{
+		/// <summary>
+		/// Sets the default values for PasswordHasher
+		/// </summary>
+		public static void SetDefaultValues()
+		{
+			const string DEFAULT_SALT = "put your soul(or salt) here";
+			const uint DEFAULT_ADLER_MOD = 65521;
+
+			PasswordHasher.Init(DEFAULT_SALT, DEFAULT_ADLER_MOD);
+		}
 
 		/*
 		Naming:
@@ -26,6 +36,7 @@ namespace TestPasswordHashingUtils
 		/// </summary>
 		public class TestInit
 		{
+
 			#region 0_1_6
 
 			/// <summary>
@@ -36,6 +47,8 @@ namespace TestPasswordHashingUtils
 			public void ExecRoute_0_1_6_NullAndZero_True()
 			{
 				// Arrange
+				SetDefaultValues();
+
 				const string SALT = null;
 				const uint ADLER_MOD = 0;
 				const string PASSWORD = "Dominskyi";
@@ -59,6 +72,8 @@ namespace TestPasswordHashingUtils
 			public void ExecRoute_0_1_6_EmptyAndZero_True()
 			{
 				// Arrange
+				SetDefaultValues();
+
 				const string SALT = "";
 				const uint ADLER_MOD = 0;
 				const string PASSWORD = "Dominskyi";
@@ -86,6 +101,8 @@ namespace TestPasswordHashingUtils
 			public void ExecRoute_0_1_5_6_EmptyAndPositive_True()
 			{
 				// Arrange
+				SetDefaultValues();
+
 				const string SALT = "";
 				const uint ADLER_MOD = 1;
 				const string PASSWORD = "Dominskyi";
@@ -109,6 +126,8 @@ namespace TestPasswordHashingUtils
 			public void ExecRoute_0_1_5_6_NullAndPositive_True()
 			{
 				// Arrange
+				SetDefaultValues();
+
 				const string SALT = null;
 				const uint ADLER_MOD = 1;
 				const string PASSWORD = "Dominskyi";
