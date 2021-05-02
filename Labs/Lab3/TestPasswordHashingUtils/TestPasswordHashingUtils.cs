@@ -283,15 +283,61 @@ namespace TestPasswordHashingUtils
 		/// </summary>
 		public class TestGetHash
 		{
-			[Fact]
-			public void Test1()
-			{
 
+			#region 0_1_6
+
+			/// <summary>
+			/// Test Execution Route 0_1_6 with null, null and zero
+			/// Should be Equal
+			/// </summary>
+			[Fact]
+			public void ExecRoute_0_1_6_Null_NullAndZero_Null()
+			{
+				// Arrange
+				SetDefaultValues();
+
+				const string SALT = null;
+				const uint ADLER_MOD = 0;
+				const string PASSWORD = null;
+
+				// Act
+				string actual = PasswordHasher.GetHash(PASSWORD, SALT, ADLER_MOD);
+
+				// Assert
+				Assert.Null(actual);
 			}
+
+			#endregion 0_1_6
+
+			#region 0_1_2_3_6_7
+
+			/// <summary>
+			/// Test Execution Route 0_1_2_3_6_7 with null, null and zero
+			/// Should be Equal
+			/// </summary>
+			[Fact]
+			public void ExecRoute_0_1_2_3_6_7_Null_NullAndZero_Null()
+			{
+				// Arrange
+				SetDefaultValues();
+
+				const string SALT = null;
+				const uint ADLER_MOD = 0;
+				const string PASSWORD = null;
+
+				// Act
+				string actual = PasswordHasher.GetHash(PASSWORD, SALT, ADLER_MOD);
+
+				// Assert
+				Assert.Null(actual);
+			}
+
+			#endregion 0_1_2_3_6_7
+
 		}
 
 		#endregion GetHash
-
+		//"Dominskyi";
 		#endregion ExecutionRoutes
 	}
 }
