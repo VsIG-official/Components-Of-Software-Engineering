@@ -6,6 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Reference Include="IIG.DatabaseConnectionUtils">
+      <HintPath>..\Materials\IIG.DatabaseConnectionUtils\IIG.DatabaseConnectionUtils.dll</HintPath>
+    </Reference>
     <Reference Include="IIG.FileWorker">
       <HintPath>..\Materials\IIG.FileWorker\IIG.FileWorker.dll</HintPath>
     </Reference>
