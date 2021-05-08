@@ -21,7 +21,15 @@ namespace Lab4
 		static void Main()
 		{
 			byte[] array = new byte[100];
-			storageDatabase.AddFile("SomeCoolName.txt", array);
+			try
+			{
+				Console.WriteLine(storageDatabase.AddFile("SomeCoolName.txt", array));
+				// storageDatabase.ExecSql()
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+			}
 		}
 	}
 }
