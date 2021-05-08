@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Materials\IIG.PasswordHashingUtils-master\IIG.PasswordHashingUtils\IIG.PasswordHashingUtils.csproj" />
+    <ProjectReference Include="..\TestDatabaseAndLibrariesInteraction\TestDatabaseAndLibrariesInteraction.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="IIG.DatabaseConnectionUtils">
       <HintPath>..\Materials\IIG.DatabaseConnectionUtils\IIG.DatabaseConnectionUtils.dll</HintPath>
     </Reference>
