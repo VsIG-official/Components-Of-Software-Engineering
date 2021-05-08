@@ -21,6 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Materials\IIG.PasswordHashingUtils-master\IIG.PasswordHashingUtils\IIG.PasswordHashingUtils.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="IIG.DatabaseConnectionUtils">
       <HintPath>..\Materials\IIG.DatabaseConnectionUtils\IIG.DatabaseConnectionUtils.dll</HintPath>
     </Reference>

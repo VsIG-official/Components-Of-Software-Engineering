@@ -19,6 +19,9 @@ namespace TestDatabaseAndLibrariesInteraction
 		StorageDatabaseUtils storageDatabase = new(Server, Database,
 			IsTrusted, Login, Password, ConnectionTimeout);
 
+		AuthDatabaseUtils authDatabase = new(Server, Database,
+			IsTrusted, Login, Password, ConnectionTimeout);
+
 
 	}
 }
