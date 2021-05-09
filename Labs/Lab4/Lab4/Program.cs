@@ -24,11 +24,12 @@ namespace Lab4
 
 		static void Main()
 		{
-			Console.WriteLine(authDatabase.AddCredentials("Login", "Password"));
-			byte[] array = new byte[99];
+			Console.WriteLine(authDatabase.AddCredentials("Login", "123"));
+			//Console.WriteLine(authDatabase.UpdateCredentials("TestLogin", "TestPass", "NewTestLogin", "NewTestPass"));
+			//byte[] array = new byte[99];
 			//try
 			//{
-			//Console.WriteLine(storageDatabase.AddFile("SomeCoolName2.txt", array));
+			//Console.WriteLine(storageDatabase.AddFile("SomeCoolName3.txt", array));
 			//	// storageDatabase.ExecSql()
 			//}
 			//catch (Exception e)
