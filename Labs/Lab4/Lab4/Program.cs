@@ -11,7 +11,7 @@ namespace Lab4
 		private const string Server = @"VSIG-MACHINE";
 		private const string AuthDatabase = @"IIG.CoSWE.AuthDB";
 		private const string StorageDatabase = @"IIG.CoSWE.StorageDB";
-		private const bool IsTrusted = false;
+		private const bool IsTrusted = true;
 		private const string Login = @"coswe";
 		private const string Password = @"L}EjpfCgru9X@GLj";
 		private const int ConnectionTimeout = 20;
@@ -24,12 +24,11 @@ namespace Lab4
 
 		static void Main()
 		{
-			Console.WriteLine(authDatabase.ConnectionString);
-			Console.WriteLine(authDatabase.AddCredentials("Cool guy", "qwerty"));
+			Console.WriteLine(authDatabase.AddCredentials("Login", "Password"));
 			byte[] array = new byte[99];
 			//try
 			//{
-			Console.WriteLine(storageDatabase.AddFile("SomeCoolName2.txt", array));
+			//Console.WriteLine(storageDatabase.AddFile("SomeCoolName2.txt", array));
 			//	// storageDatabase.ExecSql()
 			//}
 			//catch (Exception e)
