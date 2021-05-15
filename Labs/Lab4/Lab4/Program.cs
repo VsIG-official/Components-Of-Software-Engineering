@@ -53,7 +53,6 @@ namespace Lab4
 			Console.WriteLine(storageDatabase.AddFile("SomeCoolName.txt", bytes));
 
 			string newName = "NewFile.txt";
-			byte[] newBytes;
 			string newArray = "";
 
 			//storageDatabase.
