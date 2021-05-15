@@ -3,6 +3,7 @@ using IIG.FileWorker;
 using IIG.DatabaseConnectionUtils;
 using IIG.CoSFE.DatabaseUtils;
 using IIG.PasswordHashingUtils;
+using System.Text;
 
 namespace Lab4
 {
@@ -14,7 +15,7 @@ namespace Lab4
 		private const bool IsTrusted = true;
 		private const string Login = @"coswe";
 		private const string Password = @"L}EjpfCgru9X@GLj";
-		private const int ConnectionTimeout = 20;
+		private const int ConnectionTimeout = 75;
 
 		static StorageDatabaseUtils storageDatabase = new(Server, StorageDatabase,
 			IsTrusted, Login, Password, ConnectionTimeout);
@@ -24,18 +25,45 @@ namespace Lab4
 
 		static void Main()
 		{
-			Console.WriteLine(authDatabase.AddCredentials("Login", "123"));
-			//Console.WriteLine(authDatabase.UpdateCredentials("TestLogin", "TestPass", "NewTestLogin", "NewTestPass"));
-			//byte[] array = new byte[99];
-			//try
-			//{
-			//Console.WriteLine(storageDatabase.AddFile("SomeCoolName3.txt", array));
-			//	// storageDatabase.ExecSql()
-			//}
-			//catch (Exception e)
-			//{
-			//	Console.WriteLine(e.Message);
-			//}
+			storageDatabase.DeleteFile(1);
+			storageDatabase.DeleteFile(2);
+			storageDatabase.DeleteFile(3);
+			storageDatabase.DeleteFile(4);
+			storageDatabase.DeleteFile(5);
+			storageDatabase.DeleteFile(6);
+			storageDatabase.DeleteFile(7);
+			storageDatabase.DeleteFile(8);
+			storageDatabase.DeleteFile(9);
+			storageDatabase.DeleteFile(10);
+			storageDatabase.DeleteFile(11);
+			storageDatabase.DeleteFile(12);
+			storageDatabase.DeleteFile(13);
+			storageDatabase.DeleteFile(14);
+			storageDatabase.DeleteFile(15);
+			storageDatabase.DeleteFile(16);
+			storageDatabase.DeleteFile(17);
+			storageDatabase.DeleteFile(18);
+			storageDatabase.DeleteFile(19);
+			storageDatabase.DeleteFile(20);
+
+			string array = "Some String";
+
+			byte[] bytes = Encoding.UTF8.GetBytes(array);
+
+			Console.WriteLine(storageDatabase.AddFile("SomeCoolName.txt", bytes));
+
+			string newName = "NewFile.txt";
+			byte[] newBytes;
+			string newArray = "";
+
+			//storageDatabase.
+
+			Console.WriteLine(storageDatabase.GetFiles(newName));
+
+			//newArray = Encoding.UTF8.GetString(newBytes);
+			Console.WriteLine(newArray);
+
+			//storageDatabase.DeleteFile(17);
 		}
 	}
 }
