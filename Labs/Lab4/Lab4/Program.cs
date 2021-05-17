@@ -30,21 +30,6 @@ namespace Lab4
 			storageDatabase.DeleteFile(3);
 			storageDatabase.DeleteFile(4);
 			storageDatabase.DeleteFile(5);
-			storageDatabase.DeleteFile(6);
-			storageDatabase.DeleteFile(7);
-			storageDatabase.DeleteFile(8);
-			storageDatabase.DeleteFile(9);
-			storageDatabase.DeleteFile(10);
-			storageDatabase.DeleteFile(11);
-			storageDatabase.DeleteFile(12);
-			storageDatabase.DeleteFile(13);
-			storageDatabase.DeleteFile(14);
-			storageDatabase.DeleteFile(15);
-			storageDatabase.DeleteFile(16);
-			storageDatabase.DeleteFile(17);
-			storageDatabase.DeleteFile(18);
-			storageDatabase.DeleteFile(19);
-			storageDatabase.DeleteFile(20);
 
 			string array = "Some String";
 
@@ -52,17 +37,22 @@ namespace Lab4
 
 			Console.WriteLine(storageDatabase.AddFile("SomeCoolName.txt", bytes));
 
-			string newName = "NewFile.txt";
+			string newName = "N";
+			byte[] newBytes;
 			string newArray = "";
 
 			//storageDatabase.
 
-			Console.WriteLine(storageDatabase.GetFiles(newName));
+			Console.WriteLine(storageDatabase.GetFile(1, out newName, out newBytes));
 
-			//newArray = Encoding.UTF8.GetString(newBytes);
+			newArray = Encoding.UTF8.GetString(newBytes);
 			Console.WriteLine(newArray);
 
-			//storageDatabase.DeleteFile(17);
+			storageDatabase.DeleteFile(1);
+			storageDatabase.DeleteFile(2);
+			storageDatabase.DeleteFile(3);
+			storageDatabase.DeleteFile(4);
+			storageDatabase.DeleteFile(5);
 		}
 	}
 }
