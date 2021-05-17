@@ -37,15 +37,10 @@ namespace Lab4
 
 			Console.WriteLine(storageDatabase.AddFile("SomeCoolName.txt", bytes));
 
-			string newName = "N";
-			byte[] newBytes;
-			string newArray = "";
+			Console.WriteLine(storageDatabase.GetFile(6, out string newName,
+				out byte[] newBytes));
 
-			//storageDatabase.
-
-			Console.WriteLine(storageDatabase.GetFile(1, out newName, out newBytes));
-
-			newArray = Encoding.UTF8.GetString(newBytes);
+			string newArray = Encoding.UTF8.GetString(newBytes);
 			Console.WriteLine(newArray);
 
 			storageDatabase.DeleteFile(1);
