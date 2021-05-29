@@ -18,15 +18,15 @@ namespace TestDatabaseAndLibrariesInteraction
 		private const string Password = @"L}EjpfCgru9X@GLj";
 		private const int ConnectionTimeout = 75;
 
-		static StorageDatabaseUtils storageDatabase = new(Server, StorageDatabase,
+		static readonly StorageDatabaseUtils storageDatabase = new(Server, StorageDatabase,
 			IsTrusted, Login, Password, ConnectionTimeout);
 
-		static AuthDatabaseUtils authDatabase = new(Server, AuthDatabase,
+		static readonly AuthDatabaseUtils authDatabase = new(Server, AuthDatabase,
 			IsTrusted, Login, Password, ConnectionTimeout);
 
 		/*
 		Naming:
-		1. The name of the method being tested.
+		1. The name of the project being tested.
 		2. The scenario under which it's being tested.
 		3. The expected behavior when the scenario is invoked.
 		*/
@@ -34,10 +34,10 @@ namespace TestDatabaseAndLibrariesInteraction
 		#region Storage DB
 
 		[Fact]
-		public void FilePath_None_ReturnsSameString()
+		public void FileWorker_CorrectValues_ReturnsSameStrings()
 		{
 			// Arrange
-			string expectedText = "Some String";
+			string expectedText = "Some Text";
 			byte[] expectedTextInBytes = Encoding.UTF8.GetBytes(expectedText);
 
 			string expectedName = "SomeCoolName.txt";
@@ -46,8 +46,6 @@ namespace TestDatabaseAndLibrariesInteraction
 			storageDatabase.AddFile(expectedName, expectedTextInBytes);
 
 			int? fileID = storageDatabase.GetIntBySql("SELECT MAX(FileID) FROM Files");
-
-			Console.WriteLine(fileID);
 
 			storageDatabase.GetFile((int)fileID, out string actualName,
 				out byte[] actualTextInBytes);
@@ -59,7 +57,76 @@ namespace TestDatabaseAndLibrariesInteraction
 			// Assert
 			Assert.Equal(actualName, expectedName);
 			Assert.Equal(actualText, expectedText);
-			// Assert.Equal(actualTextInBytes, expectedTextInBytes);
+			Assert.Equal(actualTextInBytes, expectedTextInBytes);
+		}
+
+		[Fact]
+		public void FileWorker_EmptyText_ReturnsSameStrings()
+		{
+			// Arrange
+			string expectedText = "";
+			byte[] expectedTextInBytes = Encoding.UTF8.GetBytes(expectedText);
+
+			string expectedName = "SomeCoolName.txt";
+
+			// Act
+			storageDatabase.AddFile(expectedName, expectedTextInBytes);
+
+			int? fileID = storageDatabase.GetIntBySql("SELECT MAX(FileID) FROM Files");
+
+			storageDatabase.GetFile((int)fileID, out string actualName,
+				out byte[] actualTextInBytes);
+
+			string actualText = Encoding.UTF8.GetString(actualTextInBytes);
+
+			storageDatabase.DeleteFile((int)fileID);
+
+			// Assert
+			Assert.Equal(actualName, expectedName);
+			Assert.Equal(actualText, expectedText);
+			Assert.Equal(actualTextInBytes, expectedTextInBytes);
+		}
+
+		[Fact]
+		public void FileWorker_EmptyStrings_ReturnsException()
+		{
+			// Arrange
+			string expectedText = "";
+			byte[] expectedTextInBytes = Encoding.UTF8.GetBytes(expectedText);
+
+			string expectedName = "";
+
+			// Act
+			storageDatabase.AddFile(expectedName, expectedTextInBytes);
+
+			int? fileID = storageDatabase.GetIntBySql
+				("SELECT MAX(FileID) FROM Files");
+
+			// Assert
+			Assert.Throws<InvalidOperationException>(() =>
+			storageDatabase.GetFile((int)fileID, out string actualName,
+				out byte[] actualTextInBytes));
+		}
+
+		[Fact]
+		public void FileWorker_EmptyName_ReturnsException()
+		{
+			// Arrange
+			string expectedText = "Some Text";
+			byte[] expectedTextInBytes = Encoding.UTF8.GetBytes(expectedText);
+
+			string expectedName = "";
+
+			// Act
+			storageDatabase.AddFile(expectedName, expectedTextInBytes);
+
+			int? fileID = storageDatabase.GetIntBySql
+				("SELECT MAX(FileID) FROM Files");
+
+			// Assert
+			Assert.Throws<InvalidOperationException>(() =>
+			storageDatabase.GetFile((int)fileID, out string actualName,
+				out byte[] actualTextInBytes));
 		}
 
 		#endregion Storage DB

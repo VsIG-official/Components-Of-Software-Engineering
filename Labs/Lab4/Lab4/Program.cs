@@ -25,10 +25,10 @@ namespace Lab4
 
 		static void Main()
 		{
-			string expectedText = "Some String";
+			string expectedText = "";
 			byte[] expectedTextInBytes = Encoding.UTF8.GetBytes(expectedText);
 
-			string expectedName = "SomeCoolName.txt";
+			string expectedName = "";
 
 			// Act
 			storageDatabase.AddFile(expectedName, expectedTextInBytes);
@@ -39,22 +39,24 @@ namespace Lab4
 			storageDatabase.GetFile((int)fileID, out string actualName,
 				out byte[] actualTextInBytes);
 
-			string actualText = Encoding.UTF8.GetString(actualTextInBytes);
+			//string actualText = Encoding.UTF8.GetString(actualTextInBytes);
 
-			storageDatabase.DeleteFile((int)fileID);
+			//// storageDatabase.DeleteFile((int)fileID);
 
-			if (actualName == expectedName)
-			{
-				Console.WriteLine("TrueName");
-			}
-			if (actualText == expectedText)
-			{
-				Console.WriteLine("TrueText");
-			}
-			if (actualTextInBytes == expectedTextInBytes)
-			{
-				Console.WriteLine("TrueBytes");
-			}
+			//if (actualName == expectedName)
+			//{
+			//	Console.WriteLine("TrueName");
+			//}
+			//if (actualText == expectedText)
+			//{
+			//	Console.WriteLine("TrueText");
+			//}
+			//Console.WriteLine(actualTextInBytes.ToString());
+			//Console.WriteLine(expectedTextInBytes.ToString());
+			//if (actualTextInBytes.ToString() == expectedTextInBytes.ToString())
+			//{
+			//	Console.WriteLine("TrueBytes");
+			//}
 		}
 	}
 }
