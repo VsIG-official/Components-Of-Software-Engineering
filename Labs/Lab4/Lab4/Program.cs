@@ -25,29 +25,36 @@ namespace Lab4
 
 		static void Main()
 		{
-			storageDatabase.DeleteFile(1);
-			storageDatabase.DeleteFile(2);
-			storageDatabase.DeleteFile(3);
-			storageDatabase.DeleteFile(4);
-			storageDatabase.DeleteFile(5);
+			string expectedText = "Some String";
+			byte[] expectedTextInBytes = Encoding.UTF8.GetBytes(expectedText);
 
-			string array = "Some String";
+			string expectedName = "SomeCoolName.txt";
 
-			byte[] bytes = Encoding.UTF8.GetBytes(array);
+			// Act
+			storageDatabase.AddFile(expectedName, expectedTextInBytes);
 
-			Console.WriteLine(storageDatabase.AddFile("SomeCoolName.txt", bytes));
+			int? fileID = storageDatabase.GetIntBySql
+				("SELECT MAX(FileID) FROM Files");
 
-			Console.WriteLine(storageDatabase.GetFile(1, out string newName,
-				out byte[] newBytes));
+			storageDatabase.GetFile((int)fileID, out string actualName,
+				out byte[] actualTextInBytes);
 
-			string newArray = Encoding.UTF8.GetString(newBytes);
-			Console.WriteLine(newArray);
+			string actualText = Encoding.UTF8.GetString(actualTextInBytes);
 
-			storageDatabase.DeleteFile(1);
-			storageDatabase.DeleteFile(2);
-			storageDatabase.DeleteFile(3);
-			storageDatabase.DeleteFile(4);
-			storageDatabase.DeleteFile(5);
+			storageDatabase.DeleteFile((int)fileID);
+
+			if (actualName == expectedName)
+			{
+				Console.WriteLine("TrueName");
+			}
+			if (actualText == expectedText)
+			{
+				Console.WriteLine("TrueText");
+			}
+			if (actualTextInBytes == expectedTextInBytes)
+			{
+				Console.WriteLine("TrueBytes");
+			}
 		}
 	}
 }
