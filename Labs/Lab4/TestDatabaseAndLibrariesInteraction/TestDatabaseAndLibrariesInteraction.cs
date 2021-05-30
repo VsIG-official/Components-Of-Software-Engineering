@@ -129,6 +129,46 @@ namespace TestDatabaseAndLibrariesInteraction
 				out byte[] actualTextInBytes));
 		}
 
+		[Fact]
+		public void FileWorker_NullName_ReturnsException()
+		{
+			// Arrange
+			string expectedText = "Some Text";
+			byte[] expectedTextInBytes = Encoding.UTF8.GetBytes(expectedText);
+
+			string expectedName = null;
+
+			// Act
+			storageDatabase.AddFile(expectedName, expectedTextInBytes);
+
+			int? fileID = storageDatabase.GetIntBySql
+				("SELECT MAX(FileID) FROM Files");
+
+			// Assert
+			Assert.Throws<InvalidOperationException>(() =>
+			storageDatabase.GetFile((int)fileID, out string actualName,
+				out byte[] actualTextInBytes));
+		}
+
+		[Fact]
+		public void FileWorker_NullTextInBytes_ReturnsException()
+		{
+			// Arrange
+			byte[] expectedTextInBytes = null;
+
+			string expectedName = "SomeCoolName.txt";
+
+			// Act
+			storageDatabase.AddFile(expectedName, expectedTextInBytes);
+
+			int? fileID = storageDatabase.GetIntBySql("SELECT MAX(FileID) FROM Files");
+
+			// Assert
+			Assert.Throws<InvalidOperationException>(() =>
+			storageDatabase.GetFile((int)fileID, out string actualName,
+				out byte[] actualTextInBytes));
+		}
+
 		#endregion Storage DB
 	}
 }
