@@ -87,7 +87,59 @@ namespace TestDatabaseAndLibrariesInteraction
 			Assert.Equal(actualTextInBytes, expectedTextInBytes);
 		}
 
+		[Fact]
+		public void FileWorker_Emojis_ReturnsSameStrings()
+		{
+			// Arrange
+			string expectedText = "🎨🎨🎨";
+			byte[] expectedTextInBytes = Encoding.UTF8.GetBytes(expectedText);
 
+			string expectedName = "SomeCoolName.txt";
+
+			// Act
+			storageDatabase.AddFile(expectedName, expectedTextInBytes);
+
+			int? fileID = storageDatabase.GetIntBySql("SELECT MAX(FileID) FROM Files");
+
+			storageDatabase.GetFile((int)fileID, out string actualName,
+				out byte[] actualTextInBytes);
+
+			string actualText = Encoding.UTF8.GetString(actualTextInBytes);
+
+			storageDatabase.DeleteFile((int)fileID);
+
+			// Assert
+			Assert.Equal(actualName, expectedName);
+			Assert.Equal(actualText, expectedText);
+			Assert.Equal(actualTextInBytes, expectedTextInBytes);
+		}
+
+		[Fact]
+		public void FileWorker_Hieroglyphs_ReturnsSameStrings()
+		{
+			// Arrange
+			string expectedText = "汉字";
+			byte[] expectedTextInBytes = Encoding.UTF8.GetBytes(expectedText);
+
+			string expectedName = "SomeCoolName.txt";
+
+			// Act
+			storageDatabase.AddFile(expectedName, expectedTextInBytes);
+
+			int? fileID = storageDatabase.GetIntBySql("SELECT MAX(FileID) FROM Files");
+
+			storageDatabase.GetFile((int)fileID, out string actualName,
+				out byte[] actualTextInBytes);
+
+			string actualText = Encoding.UTF8.GetString(actualTextInBytes);
+
+			storageDatabase.DeleteFile((int)fileID);
+
+			// Assert
+			Assert.Equal(actualName, expectedName);
+			Assert.Equal(actualText, expectedText);
+			Assert.Equal(actualTextInBytes, expectedTextInBytes);
+		}
 
 		[Fact]
 		public void FileWorker_EmptyStrings_ReturnsException()
