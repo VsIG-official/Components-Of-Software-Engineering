@@ -248,6 +248,46 @@ namespace TestDatabaseAndLibrariesInteraction
 		}
 
 		[Fact]
+		public void PassHasher_EmptyPassword_ReturnsSameStrings()
+		{
+			// Arrange
+			string expectedLogin = "SomeCoolLogin";
+			string expectedPassword = "";
+
+			// Act
+			string expectedHashPassword = PasswordHasher.GetHash(expectedPassword);
+
+			authDatabase.AddCredentials(expectedLogin, expectedHashPassword);
+
+			bool areCredentialsTheSame = authDatabase.CheckCredentials(expectedLogin, expectedHashPassword);
+
+			authDatabase.DeleteCredentials(expectedLogin, expectedHashPassword);
+
+			// Assert
+			Assert.True(areCredentialsTheSame);
+		}
+
+		[Fact]
+		public void PassHasher_EmptyPasswordAndOneLetterlogin_ReturnsSameStrings()
+		{
+			// Arrange
+			string expectedLogin = "S";
+			string expectedPassword = "";
+
+			// Act
+			string expectedHashPassword = PasswordHasher.GetHash(expectedPassword);
+
+			authDatabase.AddCredentials(expectedLogin, expectedHashPassword);
+
+			bool areCredentialsTheSame = authDatabase.CheckCredentials(expectedLogin, expectedHashPassword);
+
+			authDatabase.DeleteCredentials(expectedLogin, expectedHashPassword);
+
+			// Assert
+			Assert.True(areCredentialsTheSame);
+		}
+
+		[Fact]
 		public void PassHasher_Emojis_ReturnsSameStrings()
 		{
 			// Arrange

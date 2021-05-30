@@ -25,21 +25,23 @@ namespace Lab4
 
 		static void Main()
 		{
-			// Arrange
-			string expectedLogin = "";
-			string expectedPassword = "";
+			Console.WriteLine(PasswordHasher.GetHash(""));
 
-			// Act
-			string expectedHashPassword = PasswordHasher.GetHash(expectedPassword);
+			//// Arrange
+			//string expectedLogin = "";
+			//string expectedPassword = "";
 
-			authDatabase.AddCredentials(expectedLogin, expectedHashPassword);
+			//// Act
+			//string expectedHashPassword = PasswordHasher.GetHash(expectedPassword);
 
-			bool areCredentialsTheSame = authDatabase.CheckCredentials(expectedLogin, expectedHashPassword);
+			//authDatabase.AddCredentials(expectedLogin, expectedHashPassword);
 
-			if (areCredentialsTheSame)
-			{
-				Console.WriteLine("True");
-			}
+			//bool areCredentialsTheSame = authDatabase.CheckCredentials(expectedLogin, expectedHashPassword);
+
+			//if (areCredentialsTheSame)
+			//{
+			//	Console.WriteLine("True");
+			//}
 
 			//string expectedText = "";
 			//byte[] expectedTextInBytes = Encoding.UTF8.GetBytes(expectedText);
