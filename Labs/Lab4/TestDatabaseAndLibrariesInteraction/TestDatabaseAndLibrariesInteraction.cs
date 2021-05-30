@@ -396,7 +396,45 @@ namespace TestDatabaseAndLibrariesInteraction
 
 		#endregion AddCredentials
 
+		#region UpdateCredentials
 
+		/// <summary>
+		/// Test PasswordHasher UpdateCredentials with regular values
+		/// Should return same strings
+		/// </summary>
+		[Fact]
+		public void PassHasher_UpdateCredentials_RegularLetters_ReturnsSameStrings()
+		{
+			// Arrange
+			string firstLogin = "SomeCoolLogin";
+			string firstPassword = "SomeCoolPassword";
+
+			string newLogin = "NewSomeCoolLogin";
+			string newPassword = "NewSomeCoolPassword";
+
+			// Act
+			string firstHashPassword = PasswordHasher.
+				GetHash(firstPassword);
+
+			string newHashPassword = PasswordHasher.
+				GetHash(newPassword);
+
+			authDatabase.AddCredentials(firstLogin, firstHashPassword);
+
+			authDatabase.UpdateCredentials(firstLogin, firstHashPassword,
+				newLogin, newHashPassword);
+
+			bool areCredentialsTheSame = authDatabase.
+				CheckCredentials(newLogin, newHashPassword);
+
+			authDatabase.DeleteCredentials(newLogin, newHashPassword);
+
+			// Assert
+			Assert.True(areCredentialsTheSame);
+		}
+
+
+		#endregion UpdateCredentials
 
 		#endregion Auth DB
 	}
