@@ -20,8 +20,9 @@ namespace TestDatabaseAndLibrariesInteraction
 			new(Server, StorageDatabase, IsTrusted,
 				Login, Password, ConnectionTimeout);
 
-		static readonly AuthDatabaseUtils authDatabase = new(Server, AuthDatabase,
-			IsTrusted, Login, Password, ConnectionTimeout);
+		static readonly AuthDatabaseUtils authDatabase =
+			new(Server, AuthDatabase,IsTrusted,
+				Login, Password, ConnectionTimeout);
 
 		/*
 		Naming:
