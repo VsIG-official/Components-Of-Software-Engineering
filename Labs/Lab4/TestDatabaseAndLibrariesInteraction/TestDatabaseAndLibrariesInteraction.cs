@@ -433,6 +433,112 @@ namespace TestDatabaseAndLibrariesInteraction
 			Assert.True(areCredentialsTheSame);
 		}
 
+		/// <summary>
+		/// Test PasswordHasher UpdateCredentials with empty password
+		/// Should return same strings
+		/// </summary>
+		[Fact]
+		public void PassHasher_UpdateCredentials_EmptyPassword_ReturnsSameStrings()
+		{
+			// Arrange
+			string firstLogin = "SomeCoolLogin";
+			string firstPassword = "";
+
+			string newLogin = "NewSomeCoolLogin";
+			string newPassword = "";
+
+			// Act
+			string firstHashPassword = PasswordHasher.
+				GetHash(firstPassword);
+
+			string newHashPassword = PasswordHasher.
+				GetHash(newPassword);
+
+			authDatabase.AddCredentials(firstLogin, firstHashPassword);
+
+			authDatabase.UpdateCredentials(firstLogin, firstHashPassword,
+				newLogin, newHashPassword);
+
+			bool areCredentialsTheSame = authDatabase.
+				CheckCredentials(newLogin, newHashPassword);
+
+			authDatabase.DeleteCredentials(newLogin, newHashPassword);
+
+			// Assert
+			Assert.True(areCredentialsTheSame);
+		}
+
+		/// <summary>
+		/// Test PasswordHasher UpdateCredentials with emojis
+		/// Should return same strings
+		/// </summary>
+		[Fact]
+		public void PassHasher_UpdateCredentials_Emojis_ReturnsSameStrings()
+		{
+			// Arrange
+			string firstLogin = "🎨🎨🎨";
+			string firstPassword = "⚡️⚡️⚡️";
+
+			string newLogin = "🔥🔥🔥";
+			string newPassword = "🐛🐛🐛";
+
+			// Act
+			string firstHashPassword = PasswordHasher.
+				GetHash(firstPassword);
+
+			string newHashPassword = PasswordHasher.
+				GetHash(newPassword);
+
+			authDatabase.AddCredentials(firstLogin, firstHashPassword);
+
+			authDatabase.UpdateCredentials(firstLogin, firstHashPassword,
+				newLogin, newHashPassword);
+
+			bool areCredentialsTheSame = authDatabase.
+				CheckCredentials(newLogin, newHashPassword);
+
+			authDatabase.DeleteCredentials(newLogin, newHashPassword);
+
+			// Assert
+			Assert.True(areCredentialsTheSame);
+		}
+
+		/// <summary>
+		/// Test PasswordHasher UpdateCredentials
+		/// with empty password and one letter login
+		/// Should return same strings
+		/// </summary>
+		[Fact]
+		public void PassHasher_UpdateCredentials_EmptyPasswordAndOneLetterLogin_ReturnsSameStrings()
+		{
+			// Arrange
+			string firstLogin = "S";
+			string firstPassword = "";
+
+			string newLogin = "N";
+			string newPassword = "";
+
+			// Act
+			string firstHashPassword = PasswordHasher.
+				GetHash(firstPassword);
+
+			string newHashPassword = PasswordHasher.
+				GetHash(newPassword);
+
+			authDatabase.AddCredentials(firstLogin, firstHashPassword);
+
+			authDatabase.UpdateCredentials(firstLogin, firstHashPassword,
+				newLogin, newHashPassword);
+
+			bool areCredentialsTheSame = authDatabase.
+				CheckCredentials(newLogin, newHashPassword);
+
+			authDatabase.DeleteCredentials(newLogin, newHashPassword);
+
+			// Assert
+			Assert.True(areCredentialsTheSame);
+		}
+
 
 		#endregion UpdateCredentials
 
