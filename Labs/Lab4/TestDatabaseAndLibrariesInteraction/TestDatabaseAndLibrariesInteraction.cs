@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Xunit;
 using IIG.FileWorker;
 using IIG.DatabaseConnectionUtils;
@@ -87,6 +87,8 @@ namespace TestDatabaseAndLibrariesInteraction
 			Assert.Equal(actualTextInBytes, expectedTextInBytes);
 		}
 
+
+
 		[Fact]
 		public void FileWorker_EmptyStrings_ReturnsException()
 		{
@@ -170,5 +172,49 @@ namespace TestDatabaseAndLibrariesInteraction
 		}
 
 		#endregion Storage DB
+
+		#region Auth DB
+
+		[Fact]
+		public void PassHasher_CorrectValues_ReturnsSameStrings()
+		{
+			// Arrange
+			string expectedLogin = "SomeCoolLogin";
+			string expectedPassword = "SomeCoolPassword";
+
+			// Act
+			string expectedHashPassword = PasswordHasher.GetHash(expectedPassword);
+
+			authDatabase.AddCredentials(expectedLogin, expectedHashPassword);
+
+			bool areCredentialsTheSame = authDatabase.CheckCredentials(expectedLogin, expectedHashPassword);
+
+			authDatabase.DeleteCredentials(expectedLogin, expectedHashPassword);
+
+			// Assert
+			Assert.True(areCredentialsTheSame);
+		}
+
+		[Fact]
+		public void PassHasher_EmptyStrings_ReturnsSameStrings()
+		{
+			// Arrange
+			string expectedLogin = "";
+			string expectedPassword = "";
+
+			// Act
+			string expectedHashPassword = PasswordHasher.GetHash(expectedPassword);
+
+			authDatabase.AddCredentials(expectedLogin, expectedHashPassword);
+
+			bool areCredentialsTheSame = authDatabase.CheckCredentials(expectedLogin, expectedHashPassword);
+
+			authDatabase.DeleteCredentials(expectedLogin, expectedHashPassword);
+
+			// Assert
+			Assert.True(areCredentialsTheSame);
+		}
+
+		#endregion Auth DB
 	}
 }

@@ -25,19 +25,35 @@ namespace Lab4
 
 		static void Main()
 		{
-			string expectedText = "";
-			byte[] expectedTextInBytes = Encoding.UTF8.GetBytes(expectedText);
-
-			string expectedName = "";
+			// Arrange
+			string expectedLogin = "";
+			string expectedPassword = "";
 
 			// Act
-			storageDatabase.AddFile(expectedName, expectedTextInBytes);
+			string expectedHashPassword = PasswordHasher.GetHash(expectedPassword);
 
-			int? fileID = storageDatabase.GetIntBySql
-				("SELECT MAX(FileID) FROM Files");
+			authDatabase.AddCredentials(expectedLogin, expectedHashPassword);
 
-			storageDatabase.GetFile((int)fileID, out string actualName,
-				out byte[] actualTextInBytes);
+			bool areCredentialsTheSame = authDatabase.CheckCredentials(expectedLogin, expectedHashPassword);
+
+			if (areCredentialsTheSame)
+			{
+				Console.WriteLine("True");
+			}
+
+			//string expectedText = "";
+			//byte[] expectedTextInBytes = Encoding.UTF8.GetBytes(expectedText);
+
+			//string expectedName = "";
+
+			//// Act
+			//storageDatabase.AddFile(expectedName, expectedTextInBytes);
+
+			//int? fileID = storageDatabase.GetIntBySql
+			//	("SELECT MAX(FileID) FROM Files");
+
+			//storageDatabase.GetFile((int)fileID, out string actualName,
+			//	out byte[] actualTextInBytes);
 
 			//string actualText = Encoding.UTF8.GetString(actualTextInBytes);
 
