@@ -1,6 +1,6 @@
+﻿using IIG.PasswordHashingUtils;
 using System;
 using Xunit;
-using IIG.PasswordHashingUtils;
 
 namespace TestPasswordHashingUtils
 {
@@ -195,8 +195,7 @@ namespace TestPasswordHashingUtils
 				// Arrange
 				SetDefaultValues();
 
-				// Let's pretend, that there We have REALLY large string
-				const string SALT = "Some REALLY BIG and cool salt";
+				const string SALT = "汉字汉字汉字";
 				const uint ADLER_MOD = 0;
 				const string PASSWORD = "Dominskyi";
 
@@ -208,7 +207,6 @@ namespace TestPasswordHashingUtils
 				string actual = PasswordHasher.GetHash(PASSWORD);
 
 				// Assert
-				Assert.Throws<OverflowException>(() => PasswordHasher.Init(SALT, ADLER_MOD));
 				Assert.NotEqual(actual, expected);
 			}
 
@@ -226,8 +224,7 @@ namespace TestPasswordHashingUtils
 				// Arrange
 				SetDefaultValues();
 
-				// Let's pretend, that there We have REALLY large string
-				const string SALT = "Some REALLY BIG and cool salt";
+				const string SALT = "汉字汉字汉字";
 				const uint ADLER_MOD = 1;
 				const string PASSWORD = "Dominskyi";
 
@@ -239,7 +236,6 @@ namespace TestPasswordHashingUtils
 				string actual = PasswordHasher.GetHash(PASSWORD);
 
 				// Assert
-				Assert.Throws<OverflowException>(() => PasswordHasher.Init(SALT, ADLER_MOD));
 				Assert.NotEqual(actual, expected);
 			}
 
@@ -348,8 +344,7 @@ namespace TestPasswordHashingUtils
 				// Arrange
 				SetDefaultValues();
 
-				// Let's pretend, that there We have REALLY large string
-				const string SALT = "Some REALLY BIG, new and cool salt";
+				const string SALT = "汉字汉字汉字";
 				const uint ADLER_MOD = 3;
 				const string PASSWORD = "Dominskyi";
 
@@ -357,7 +352,6 @@ namespace TestPasswordHashingUtils
 				string actual = PasswordHasher.GetHash(PASSWORD, SALT, ADLER_MOD);
 
 				// Assert
-				Assert.Throws<OverflowException>(() => PasswordHasher.Init(SALT, ADLER_MOD));
 				Assert.NotNull(actual);
 			}
 
