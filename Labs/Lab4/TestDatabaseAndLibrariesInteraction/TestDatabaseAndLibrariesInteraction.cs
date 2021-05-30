@@ -1,7 +1,5 @@
 ﻿using System;
 using Xunit;
-using IIG.FileWorker;
-using IIG.DatabaseConnectionUtils;
 using IIG.CoSFE.DatabaseUtils;
 using IIG.PasswordHashingUtils;
 using System.Text;
@@ -18,8 +16,9 @@ namespace TestDatabaseAndLibrariesInteraction
 		private const string Password = @"L}EjpfCgru9X@GLj";
 		private const int ConnectionTimeout = 75;
 
-		static readonly StorageDatabaseUtils storageDatabase = new(Server, StorageDatabase,
-			IsTrusted, Login, Password, ConnectionTimeout);
+		static readonly StorageDatabaseUtils storageDatabase =
+			new(Server, StorageDatabase, IsTrusted,
+				Login, Password, ConnectionTimeout);
 
 		static readonly AuthDatabaseUtils authDatabase = new(Server, AuthDatabase,
 			IsTrusted, Login, Password, ConnectionTimeout);
@@ -27,12 +26,17 @@ namespace TestDatabaseAndLibrariesInteraction
 		/*
 		Naming:
 		1. The name of the project being tested.
-		2. The scenario under which it's being tested.
-		3. The expected behavior when the scenario is invoked.
+		(optional) 2. The name of the method being tested
+		3. The scenario under which it's being tested.
+		4. The expected behavior when the scenario is invoked.
 		*/
 
 		#region Storage DB
 
+		/// <summary>
+		/// Test FileWorker with regular values
+		/// Should return same strings
+		/// </summary>
 		[Fact]
 		public void FileWorker_RegularLetters_ReturnsSameStrings()
 		{
@@ -45,7 +49,8 @@ namespace TestDatabaseAndLibrariesInteraction
 			// Act
 			storageDatabase.AddFile(expectedName, expectedTextInBytes);
 
-			int? fileID = storageDatabase.GetIntBySql("SELECT MAX(FileID) FROM Files");
+			int? fileID = storageDatabase.GetIntBySql
+				("SELECT MAX(FileID) FROM Files");
 
 			storageDatabase.GetFile((int)fileID, out string actualName,
 				out byte[] actualTextInBytes);
@@ -60,6 +65,10 @@ namespace TestDatabaseAndLibrariesInteraction
 			Assert.Equal(actualTextInBytes, expectedTextInBytes);
 		}
 
+		/// <summary>
+		/// Test FileWorker with empty values
+		/// Should return same strings
+		/// </summary>
 		[Fact]
 		public void FileWorker_EmptyText_ReturnsSameStrings()
 		{
@@ -72,7 +81,8 @@ namespace TestDatabaseAndLibrariesInteraction
 			// Act
 			storageDatabase.AddFile(expectedName, expectedTextInBytes);
 
-			int? fileID = storageDatabase.GetIntBySql("SELECT MAX(FileID) FROM Files");
+			int? fileID = storageDatabase.GetIntBySql
+				("SELECT MAX(FileID) FROM Files");
 
 			storageDatabase.GetFile((int)fileID, out string actualName,
 				out byte[] actualTextInBytes);
@@ -87,6 +97,10 @@ namespace TestDatabaseAndLibrariesInteraction
 			Assert.Equal(actualTextInBytes, expectedTextInBytes);
 		}
 
+		/// <summary>
+		/// Test FileWorker with emojis
+		/// Should return same strings
+		/// </summary>
 		[Fact]
 		public void FileWorker_Emojis_ReturnsSameStrings()
 		{
@@ -94,7 +108,7 @@ namespace TestDatabaseAndLibrariesInteraction
 			string expectedText = "🎨🎨🎨";
 			byte[] expectedTextInBytes = Encoding.UTF8.GetBytes(expectedText);
 
-			string expectedName = "🎨🎨🎨.txt";
+			string expectedName = "⚡️⚡️⚡️.txt";
 
 			// Act
 			storageDatabase.AddFile(expectedName, expectedTextInBytes);
@@ -114,6 +128,10 @@ namespace TestDatabaseAndLibrariesInteraction
 			Assert.Equal(actualTextInBytes, expectedTextInBytes);
 		}
 
+		/// <summary>
+		/// Test FileWorker with hieroglyphs
+		/// Should return same strings
+		/// </summary>
 		[Fact]
 		public void FileWorker_Hieroglyphs_ReturnsSameStrings()
 		{
@@ -121,12 +139,13 @@ namespace TestDatabaseAndLibrariesInteraction
 			string expectedText = "汉字";
 			byte[] expectedTextInBytes = Encoding.UTF8.GetBytes(expectedText);
 
-			string expectedName = "SomeCoolName.txt";
+			string expectedName = "漢字.txt";
 
 			// Act
 			storageDatabase.AddFile(expectedName, expectedTextInBytes);
 
-			int? fileID = storageDatabase.GetIntBySql("SELECT MAX(FileID) FROM Files");
+			int? fileID = storageDatabase.GetIntBySql
+				("SELECT MAX(FileID) FROM Files");
 
 			storageDatabase.GetFile((int)fileID, out string actualName,
 				out byte[] actualTextInBytes);
@@ -141,6 +160,10 @@ namespace TestDatabaseAndLibrariesInteraction
 			Assert.Equal(actualTextInBytes, expectedTextInBytes);
 		}
 
+		/// <summary>
+		/// Test FileWorker with empty strings
+		/// Should return exception
+		/// </summary>
 		[Fact]
 		public void FileWorker_EmptyStrings_ReturnsException()
 		{
@@ -162,6 +185,10 @@ namespace TestDatabaseAndLibrariesInteraction
 				out byte[] actualTextInBytes));
 		}
 
+		/// <summary>
+		/// Test FileWorker with empty name
+		/// Should return exception
+		/// </summary>
 		[Fact]
 		public void FileWorker_EmptyName_ReturnsException()
 		{
@@ -183,6 +210,10 @@ namespace TestDatabaseAndLibrariesInteraction
 				out byte[] actualTextInBytes));
 		}
 
+		/// <summary>
+		/// Test FileWorker with null name
+		/// Should return exception
+		/// </summary>
 		[Fact]
 		public void FileWorker_NullName_ReturnsException()
 		{
@@ -204,6 +235,10 @@ namespace TestDatabaseAndLibrariesInteraction
 				out byte[] actualTextInBytes));
 		}
 
+		/// <summary>
+		/// Test FileWorker with null bytes
+		/// Should return exception
+		/// </summary>
 		[Fact]
 		public void FileWorker_NullTextInBytes_ReturnsException()
 		{
@@ -215,7 +250,8 @@ namespace TestDatabaseAndLibrariesInteraction
 			// Act
 			storageDatabase.AddFile(expectedName, expectedTextInBytes);
 
-			int? fileID = storageDatabase.GetIntBySql("SELECT MAX(FileID) FROM Files");
+			int? fileID = storageDatabase.GetIntBySql
+				("SELECT MAX(FileID) FROM Files");
 
 			// Assert
 			Assert.Throws<InvalidOperationException>(() =>
@@ -227,19 +263,27 @@ namespace TestDatabaseAndLibrariesInteraction
 
 		#region Auth DB
 
+		#region AddCredentials
+
+		/// <summary>
+		/// Test PasswordHasher AddCredentials with regular values
+		/// Should return same strings
+		/// </summary>
 		[Fact]
-		public void PassHasher_RegularLetters_ReturnsSameStrings()
+		public void PassHasher_AddCredentials_RegularLetters_ReturnsSameStrings()
 		{
 			// Arrange
 			string expectedLogin = "SomeCoolLogin";
 			string expectedPassword = "SomeCoolPassword";
 
 			// Act
-			string expectedHashPassword = PasswordHasher.GetHash(expectedPassword);
+			string expectedHashPassword = PasswordHasher.
+				GetHash(expectedPassword);
 
 			authDatabase.AddCredentials(expectedLogin, expectedHashPassword);
 
-			bool areCredentialsTheSame = authDatabase.CheckCredentials(expectedLogin, expectedHashPassword);
+			bool areCredentialsTheSame = authDatabase.
+				CheckCredentials(expectedLogin, expectedHashPassword);
 
 			authDatabase.DeleteCredentials(expectedLogin, expectedHashPassword);
 
@@ -247,19 +291,25 @@ namespace TestDatabaseAndLibrariesInteraction
 			Assert.True(areCredentialsTheSame);
 		}
 
+		/// <summary>
+		/// Test PasswordHasher AddCredentials with empty password
+		/// Should return same strings
+		/// </summary>
 		[Fact]
-		public void PassHasher_EmptyPassword_ReturnsSameStrings()
+		public void PassHasher_AddCredentials_EmptyPassword_ReturnsSameStrings()
 		{
 			// Arrange
 			string expectedLogin = "SomeCoolLogin";
 			string expectedPassword = "";
 
 			// Act
-			string expectedHashPassword = PasswordHasher.GetHash(expectedPassword);
+			string expectedHashPassword = PasswordHasher.
+				GetHash(expectedPassword);
 
 			authDatabase.AddCredentials(expectedLogin, expectedHashPassword);
 
-			bool areCredentialsTheSame = authDatabase.CheckCredentials(expectedLogin, expectedHashPassword);
+			bool areCredentialsTheSame = authDatabase.
+				CheckCredentials(expectedLogin, expectedHashPassword);
 
 			authDatabase.DeleteCredentials(expectedLogin, expectedHashPassword);
 
@@ -267,19 +317,26 @@ namespace TestDatabaseAndLibrariesInteraction
 			Assert.True(areCredentialsTheSame);
 		}
 
+		/// <summary>
+		/// Test PasswordHasher AddCredentials with empty password
+		/// and one letter in a login
+		/// Should return same strings
+		/// </summary>
 		[Fact]
-		public void PassHasher_EmptyPasswordAndOneLetterlogin_ReturnsSameStrings()
+		public void PassHasher_AddCredentials_EmptyPasswordAndOneLetterlogin_ReturnsSameStrings()
 		{
 			// Arrange
 			string expectedLogin = "S";
 			string expectedPassword = "";
 
 			// Act
-			string expectedHashPassword = PasswordHasher.GetHash(expectedPassword);
+			string expectedHashPassword = PasswordHasher.
+				GetHash(expectedPassword);
 
 			authDatabase.AddCredentials(expectedLogin, expectedHashPassword);
 
-			bool areCredentialsTheSame = authDatabase.CheckCredentials(expectedLogin, expectedHashPassword);
+			bool areCredentialsTheSame = authDatabase.
+				CheckCredentials(expectedLogin, expectedHashPassword);
 
 			authDatabase.DeleteCredentials(expectedLogin, expectedHashPassword);
 
@@ -287,19 +344,25 @@ namespace TestDatabaseAndLibrariesInteraction
 			Assert.True(areCredentialsTheSame);
 		}
 
+		/// <summary>
+		/// Test PasswordHasher AddCredentials with emojis
+		/// Should return same strings
+		/// </summary>
 		[Fact]
-		public void PassHasher_Emojis_ReturnsSameStrings()
+		public void PassHasher_AddCredentials_Emojis_ReturnsSameStrings()
 		{
 			// Arrange
 			string expectedLogin = "🎨🎨🎨";
 			string expectedPassword = "⚡️⚡️⚡️";
 
 			// Act
-			string expectedHashPassword = PasswordHasher.GetHash(expectedPassword);
+			string expectedHashPassword = PasswordHasher.
+				GetHash(expectedPassword);
 
 			authDatabase.AddCredentials(expectedLogin, expectedHashPassword);
 
-			bool areCredentialsTheSame = authDatabase.CheckCredentials(expectedLogin, expectedHashPassword);
+			bool areCredentialsTheSame = authDatabase.
+				CheckCredentials(expectedLogin, expectedHashPassword);
 
 			authDatabase.DeleteCredentials(expectedLogin, expectedHashPassword);
 
@@ -307,8 +370,12 @@ namespace TestDatabaseAndLibrariesInteraction
 			Assert.True(areCredentialsTheSame);
 		}
 
+		/// <summary>
+		/// Test PasswordHasher AddCredentials with hieroglyphs
+		/// Should return same strings
+		/// </summary>
 		[Fact]
-		public void PassHasher_Hieroglyphs_ReturnsSameStrings()
+		public void PassHasher_AddCredentials_Hieroglyphs_ReturnsSameStrings()
 		{
 			// Arrange
 			string expectedLogin = "汉字";
@@ -326,6 +393,10 @@ namespace TestDatabaseAndLibrariesInteraction
 			// Assert
 			Assert.True(areCredentialsTheSame);
 		}
+
+		#endregion AddCredentials
+
+
 
 		#endregion Auth DB
 	}
