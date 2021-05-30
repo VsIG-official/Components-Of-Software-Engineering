@@ -469,41 +469,6 @@ namespace TestDatabaseAndLibrariesInteraction
 		}
 
 		/// <summary>
-		/// Test PasswordHasher UpdateCredentials with emojis
-		/// Should return same strings
-		/// </summary>
-		[Fact]
-		public void PassHasher_UpdateCredentials_Emojis_ReturnsSameStrings()
-		{
-			// Arrange
-			string firstLogin = "🎨🎨🎨";
-			string firstPassword = "⚡️⚡️⚡️";
-
-			string newLogin = "🔥🔥🔥";
-			string newPassword = "🐛🐛🐛";
-
-			// Act
-			string firstHashPassword = PasswordHasher.
-				GetHash(firstPassword);
-
-			string newHashPassword = PasswordHasher.
-				GetHash(newPassword);
-
-			authDatabase.AddCredentials(firstLogin, firstHashPassword);
-
-			authDatabase.UpdateCredentials(firstLogin, firstHashPassword,
-				newLogin, newHashPassword);
-
-			bool areCredentialsTheSame = authDatabase.
-				CheckCredentials(newLogin, newHashPassword);
-
-			authDatabase.DeleteCredentials(newLogin, newHashPassword);
-
-			// Assert
-			Assert.True(areCredentialsTheSame);
-		}
-
-		/// <summary>
 		/// Test PasswordHasher UpdateCredentials
 		/// with empty password and one letter login
 		/// Should return same strings
@@ -539,6 +504,75 @@ namespace TestDatabaseAndLibrariesInteraction
 			Assert.True(areCredentialsTheSame);
 		}
 
+		/// <summary>
+		/// Test PasswordHasher UpdateCredentials with emojis
+		/// Should return same strings
+		/// </summary>
+		[Fact]
+		public void PassHasher_UpdateCredentials_Emojis_ReturnsSameStrings()
+		{
+			// Arrange
+			string firstLogin = "🎨🎨🎨";
+			string firstPassword = "⚡️⚡️⚡️";
+
+			string newLogin = "🔥🔥🔥";
+			string newPassword = "🐛🐛🐛";
+
+			// Act
+			string firstHashPassword = PasswordHasher.
+				GetHash(firstPassword);
+
+			string newHashPassword = PasswordHasher.
+				GetHash(newPassword);
+
+			authDatabase.AddCredentials(firstLogin, firstHashPassword);
+
+			authDatabase.UpdateCredentials(firstLogin, firstHashPassword,
+				newLogin, newHashPassword);
+
+			bool areCredentialsTheSame = authDatabase.
+				CheckCredentials(newLogin, newHashPassword);
+
+			authDatabase.DeleteCredentials(newLogin, newHashPassword);
+
+			// Assert
+			Assert.True(areCredentialsTheSame);
+		}
+
+		/// <summary>
+		/// Test PasswordHasher UpdateCredentials with hieroglyphs
+		/// Should return same strings
+		/// </summary>
+		[Fact]
+		public void PassHasher_UpdateCredentials_Hieroglyphs_ReturnsSameStrings()
+		{
+			// Arrange
+			string firstLogin = "汉字";
+			string firstPassword = "漢字";
+
+			string newLogin = "한자";
+			string newPassword = "漢字";
+
+			// Act
+			string firstHashPassword = PasswordHasher.
+				GetHash(firstPassword);
+
+			string newHashPassword = PasswordHasher.
+				GetHash(newPassword);
+
+			authDatabase.AddCredentials(firstLogin, firstHashPassword);
+
+			authDatabase.UpdateCredentials(firstLogin, firstHashPassword,
+				newLogin, newHashPassword);
+
+			bool areCredentialsTheSame = authDatabase.
+				CheckCredentials(newLogin, newHashPassword);
+
+			authDatabase.DeleteCredentials(newLogin, newHashPassword);
+
+			// Assert
+			Assert.True(areCredentialsTheSame);
+		}
 
 		#endregion UpdateCredentials
 
