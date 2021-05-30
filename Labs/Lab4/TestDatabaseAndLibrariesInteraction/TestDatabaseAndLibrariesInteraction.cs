@@ -34,7 +34,7 @@ namespace TestDatabaseAndLibrariesInteraction
 		#region Storage DB
 
 		[Fact]
-		public void FileWorker_CorrectValues_ReturnsSameStrings()
+		public void FileWorker_RegularLetters_ReturnsSameStrings()
 		{
 			// Arrange
 			string expectedText = "Some Text";
@@ -94,7 +94,7 @@ namespace TestDatabaseAndLibrariesInteraction
 			string expectedText = "🎨🎨🎨";
 			byte[] expectedTextInBytes = Encoding.UTF8.GetBytes(expectedText);
 
-			string expectedName = "SomeCoolName.txt";
+			string expectedName = "🎨🎨🎨.txt";
 
 			// Act
 			storageDatabase.AddFile(expectedName, expectedTextInBytes);
@@ -228,7 +228,7 @@ namespace TestDatabaseAndLibrariesInteraction
 		#region Auth DB
 
 		[Fact]
-		public void PassHasher_CorrectValues_ReturnsSameStrings()
+		public void PassHasher_RegularLetters_ReturnsSameStrings()
 		{
 			// Arrange
 			string expectedLogin = "SomeCoolLogin";
@@ -248,11 +248,31 @@ namespace TestDatabaseAndLibrariesInteraction
 		}
 
 		[Fact]
-		public void PassHasher_EmptyStrings_ReturnsSameStrings()
+		public void PassHasher_Emojis_ReturnsSameStrings()
 		{
 			// Arrange
-			string expectedLogin = "";
-			string expectedPassword = "";
+			string expectedLogin = "🎨🎨🎨";
+			string expectedPassword = "⚡️⚡️⚡️";
+
+			// Act
+			string expectedHashPassword = PasswordHasher.GetHash(expectedPassword);
+
+			authDatabase.AddCredentials(expectedLogin, expectedHashPassword);
+
+			bool areCredentialsTheSame = authDatabase.CheckCredentials(expectedLogin, expectedHashPassword);
+
+			authDatabase.DeleteCredentials(expectedLogin, expectedHashPassword);
+
+			// Assert
+			Assert.True(areCredentialsTheSame);
+		}
+
+		[Fact]
+		public void PassHasher_Hieroglyphs_ReturnsSameStrings()
+		{
+			// Arrange
+			string expectedLogin = "汉字";
+			string expectedPassword = "漢字";
 
 			// Act
 			string expectedHashPassword = PasswordHasher.GetHash(expectedPassword);
