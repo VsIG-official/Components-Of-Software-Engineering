@@ -160,10 +160,10 @@ namespace TestDatabaseAndLibrariesInteraction
 
 		/// <summary>
 		/// Test FileWorker with empty strings
-		/// Should return exception
+		/// Should return false
 		/// </summary>
 		[Fact]
-		public void FileWorker_EmptyStrings_ReturnsException()
+		public void FileWorker_EmptyStrings_ReturnsFalse()
 		{
 			// Arrange
 			string expectedText = "";
@@ -172,23 +172,19 @@ namespace TestDatabaseAndLibrariesInteraction
 			string expectedName = "";
 
 			// Act
-			Assert.True(storageDatabase.AddFile(expectedName, expectedTextInBytes));
-
-			int? fileID = storageDatabase.GetIntBySql
-				("SELECT MAX(FileID) FROM Files");
+			bool isWritten = storageDatabase.AddFile(expectedName,
+				expectedTextInBytes);
 
 			// Assert
-			Assert.Throws<InvalidOperationException>(() =>
-			storageDatabase.GetFile((int)fileID, out string actualName,
-				out byte[] actualTextInBytes));
+			Assert.False(isWritten);
 		}
 
 		/// <summary>
 		/// Test FileWorker with empty name
-		/// Should return exception
+		/// Should return false
 		/// </summary>
 		[Fact]
-		public void FileWorker_EmptyName_ReturnsException()
+		public void FileWorker_EmptyName_ReturnsFalse()
 		{
 			// Arrange
 			string expectedText = "Some Text";
@@ -197,23 +193,19 @@ namespace TestDatabaseAndLibrariesInteraction
 			string expectedName = "";
 
 			// Act
-			Assert.True(storageDatabase.AddFile(expectedName, expectedTextInBytes));
-
-			int? fileID = storageDatabase.GetIntBySql
-				("SELECT MAX(FileID) FROM Files");
+			bool isWritten = storageDatabase.AddFile(expectedName,
+				expectedTextInBytes);
 
 			// Assert
-			Assert.Throws<InvalidOperationException>(() =>
-			storageDatabase.GetFile((int)fileID, out string actualName,
-				out byte[] actualTextInBytes));
+			Assert.False(isWritten);
 		}
 
 		/// <summary>
 		/// Test FileWorker with null name
-		/// Should return exception
+		/// Should return false
 		/// </summary>
 		[Fact]
-		public void FileWorker_NullName_ReturnsException()
+		public void FileWorker_NullName_ReturnsFalse()
 		{
 			// Arrange
 			string expectedText = "Some Text";
@@ -222,23 +214,19 @@ namespace TestDatabaseAndLibrariesInteraction
 			string expectedName = null;
 
 			// Act
-			Assert.True(storageDatabase.AddFile(expectedName, expectedTextInBytes));
-
-			int? fileID = storageDatabase.GetIntBySql
-				("SELECT MAX(FileID) FROM Files");
+			bool isWritten = storageDatabase.AddFile(expectedName,
+				expectedTextInBytes);
 
 			// Assert
-			Assert.Throws<InvalidOperationException>(() =>
-			storageDatabase.GetFile((int)fileID, out string actualName,
-				out byte[] actualTextInBytes));
+			Assert.False(isWritten);
 		}
 
 		/// <summary>
 		/// Test FileWorker with null bytes
-		/// Should return exception
+		/// Should return false
 		/// </summary>
 		[Fact]
-		public void FileWorker_NullTextInBytes_ReturnsException()
+		public void FileWorker_NullTextInBytes_ReturnsFalse()
 		{
 			// Arrange
 			byte[] expectedTextInBytes = null;
@@ -246,15 +234,11 @@ namespace TestDatabaseAndLibrariesInteraction
 			string expectedName = "SomeCoolName.txt";
 
 			// Act
-			Assert.True(storageDatabase.AddFile(expectedName, expectedTextInBytes));
-
-			int? fileID = storageDatabase.GetIntBySql
-				("SELECT MAX(FileID) FROM Files");
+			bool isWritten = storageDatabase.AddFile(expectedName,
+				expectedTextInBytes);
 
 			// Assert
-			Assert.Throws<InvalidOperationException>(() =>
-			storageDatabase.GetFile((int)fileID, out string actualName,
-				out byte[] actualTextInBytes));
+			Assert.False(isWritten);
 		}
 
 		#endregion Storage DB
