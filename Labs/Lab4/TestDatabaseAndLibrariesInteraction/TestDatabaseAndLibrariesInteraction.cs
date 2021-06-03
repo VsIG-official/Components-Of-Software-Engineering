@@ -48,17 +48,17 @@ namespace TestDatabaseAndLibrariesInteraction
 			string expectedName = "SomeCoolName.txt";
 
 			// Act
-			storageDatabase.AddFile(expectedName, expectedTextInBytes);
+			Assert.True(storageDatabase.AddFile(expectedName, expectedTextInBytes));
 
 			int? fileID = storageDatabase.GetIntBySql
 				("SELECT MAX(FileID) FROM Files");
 
-			storageDatabase.GetFile((int)fileID, out string actualName,
-				out byte[] actualTextInBytes);
+			Assert.True(storageDatabase.GetFile((int)fileID, out string actualName,
+				out byte[] actualTextInBytes));
 
 			string actualText = Encoding.UTF8.GetString(actualTextInBytes);
 
-			storageDatabase.DeleteFile((int)fileID);
+			Assert.True(storageDatabase.DeleteFile((int)fileID));
 
 			// Assert
 			Assert.Equal(actualName, expectedName);
@@ -80,17 +80,16 @@ namespace TestDatabaseAndLibrariesInteraction
 			string expectedName = "SomeCoolName.txt";
 
 			// Act
-			storageDatabase.AddFile(expectedName, expectedTextInBytes);
+			Assert.True(storageDatabase.AddFile(expectedName, expectedTextInBytes));
 
 			int? fileID = storageDatabase.GetIntBySql
 				("SELECT MAX(FileID) FROM Files");
 
-			storageDatabase.GetFile((int)fileID, out string actualName,
-				out byte[] actualTextInBytes);
+			Assert.True(storageDatabase.GetFile((int)fileID, out string actualName, out byte[] actualTextInBytes));
 
 			string actualText = Encoding.UTF8.GetString(actualTextInBytes);
 
-			storageDatabase.DeleteFile((int)fileID);
+			Assert.True(storageDatabase.DeleteFile((int)fileID));
 
 			// Assert
 			Assert.Equal(actualName, expectedName);
@@ -112,16 +111,15 @@ namespace TestDatabaseAndLibrariesInteraction
 			string expectedName = "⚡️⚡️⚡️.txt";
 
 			// Act
-			storageDatabase.AddFile(expectedName, expectedTextInBytes);
+			Assert.True(storageDatabase.AddFile(expectedName, expectedTextInBytes));
 
 			int? fileID = storageDatabase.GetIntBySql("SELECT MAX(FileID) FROM Files");
 
-			storageDatabase.GetFile((int)fileID, out string actualName,
-				out byte[] actualTextInBytes);
+			Assert.True(storageDatabase.GetFile((int)fileID, out string actualName, out byte[] actualTextInBytes));
 
 			string actualText = Encoding.UTF8.GetString(actualTextInBytes);
 
-			storageDatabase.DeleteFile((int)fileID);
+			Assert.True(storageDatabase.DeleteFile((int)fileID));
 
 			// Assert
 			Assert.Equal(actualName, expectedName);
@@ -143,17 +141,16 @@ namespace TestDatabaseAndLibrariesInteraction
 			string expectedName = "漢字.txt";
 
 			// Act
-			storageDatabase.AddFile(expectedName, expectedTextInBytes);
+			Assert.True(storageDatabase.AddFile(expectedName, expectedTextInBytes));
 
 			int? fileID = storageDatabase.GetIntBySql
 				("SELECT MAX(FileID) FROM Files");
 
-			storageDatabase.GetFile((int)fileID, out string actualName,
-				out byte[] actualTextInBytes);
+			Assert.True(storageDatabase.GetFile((int)fileID, out string actualName, out byte[] actualTextInBytes));
 
 			string actualText = Encoding.UTF8.GetString(actualTextInBytes);
 
-			storageDatabase.DeleteFile((int)fileID);
+			Assert.True(storageDatabase.DeleteFile((int)fileID));
 
 			// Assert
 			Assert.Equal(actualName, expectedName);
@@ -175,7 +172,7 @@ namespace TestDatabaseAndLibrariesInteraction
 			string expectedName = "";
 
 			// Act
-			storageDatabase.AddFile(expectedName, expectedTextInBytes);
+			Assert.True(storageDatabase.AddFile(expectedName, expectedTextInBytes));
 
 			int? fileID = storageDatabase.GetIntBySql
 				("SELECT MAX(FileID) FROM Files");
@@ -200,7 +197,7 @@ namespace TestDatabaseAndLibrariesInteraction
 			string expectedName = "";
 
 			// Act
-			storageDatabase.AddFile(expectedName, expectedTextInBytes);
+			Assert.True(storageDatabase.AddFile(expectedName, expectedTextInBytes));
 
 			int? fileID = storageDatabase.GetIntBySql
 				("SELECT MAX(FileID) FROM Files");
@@ -225,7 +222,7 @@ namespace TestDatabaseAndLibrariesInteraction
 			string expectedName = null;
 
 			// Act
-			storageDatabase.AddFile(expectedName, expectedTextInBytes);
+			Assert.True(storageDatabase.AddFile(expectedName, expectedTextInBytes));
 
 			int? fileID = storageDatabase.GetIntBySql
 				("SELECT MAX(FileID) FROM Files");
@@ -249,7 +246,7 @@ namespace TestDatabaseAndLibrariesInteraction
 			string expectedName = "SomeCoolName.txt";
 
 			// Act
-			storageDatabase.AddFile(expectedName, expectedTextInBytes);
+			Assert.True(storageDatabase.AddFile(expectedName, expectedTextInBytes));
 
 			int? fileID = storageDatabase.GetIntBySql
 				("SELECT MAX(FileID) FROM Files");
