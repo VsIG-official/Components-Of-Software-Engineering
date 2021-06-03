@@ -85,7 +85,8 @@ namespace TestDatabaseAndLibrariesInteraction
 			int? fileID = storageDatabase.GetIntBySql
 				("SELECT MAX(FileID) FROM Files");
 
-			Assert.True(storageDatabase.GetFile((int)fileID, out string actualName, out byte[] actualTextInBytes));
+			Assert.True(storageDatabase.GetFile((int)fileID, out string actualName,
+				out byte[] actualTextInBytes));
 
 			string actualText = Encoding.UTF8.GetString(actualTextInBytes);
 
@@ -115,7 +116,8 @@ namespace TestDatabaseAndLibrariesInteraction
 
 			int? fileID = storageDatabase.GetIntBySql("SELECT MAX(FileID) FROM Files");
 
-			Assert.True(storageDatabase.GetFile((int)fileID, out string actualName, out byte[] actualTextInBytes));
+			Assert.True(storageDatabase.GetFile((int)fileID, out string actualName,
+				out byte[] actualTextInBytes));
 
 			string actualText = Encoding.UTF8.GetString(actualTextInBytes);
 
@@ -146,7 +148,8 @@ namespace TestDatabaseAndLibrariesInteraction
 			int? fileID = storageDatabase.GetIntBySql
 				("SELECT MAX(FileID) FROM Files");
 
-			Assert.True(storageDatabase.GetFile((int)fileID, out string actualName, out byte[] actualTextInBytes));
+			Assert.True(storageDatabase.GetFile((int)fileID, out string actualName,
+				out byte[] actualTextInBytes));
 
 			string actualText = Encoding.UTF8.GetString(actualTextInBytes);
 
