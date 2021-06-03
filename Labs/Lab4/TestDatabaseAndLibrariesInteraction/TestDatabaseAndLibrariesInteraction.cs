@@ -278,12 +278,14 @@ namespace TestDatabaseAndLibrariesInteraction
 			string expectedHashPassword = PasswordHasher.
 				GetHash(expectedPassword);
 
-			authDatabase.AddCredentials(expectedLogin, expectedHashPassword);
+			Assert.True(authDatabase.AddCredentials(expectedLogin,
+				expectedHashPassword));
 
 			bool areCredentialsTheSame = authDatabase.
 				CheckCredentials(expectedLogin, expectedHashPassword);
 
-			authDatabase.DeleteCredentials(expectedLogin, expectedHashPassword);
+			Assert.True(authDatabase.DeleteCredentials(expectedLogin,
+				expectedHashPassword));
 
 			// Assert
 			Assert.True(areCredentialsTheSame);
@@ -304,12 +306,14 @@ namespace TestDatabaseAndLibrariesInteraction
 			string expectedHashPassword = PasswordHasher.
 				GetHash(expectedPassword);
 
-			authDatabase.AddCredentials(expectedLogin, expectedHashPassword);
+			Assert.True(authDatabase.AddCredentials(expectedLogin,
+				expectedHashPassword));
 
 			bool areCredentialsTheSame = authDatabase.
 				CheckCredentials(expectedLogin, expectedHashPassword);
 
-			authDatabase.DeleteCredentials(expectedLogin, expectedHashPassword);
+			Assert.True(authDatabase.DeleteCredentials(expectedLogin,
+				expectedHashPassword));
 
 			// Assert
 			Assert.True(areCredentialsTheSame);
@@ -331,12 +335,14 @@ namespace TestDatabaseAndLibrariesInteraction
 			string expectedHashPassword = PasswordHasher.
 				GetHash(expectedPassword);
 
-			authDatabase.AddCredentials(expectedLogin, expectedHashPassword);
+			Assert.True(authDatabase.AddCredentials(expectedLogin,
+				expectedHashPassword));
 
 			bool areCredentialsTheSame = authDatabase.
 				CheckCredentials(expectedLogin, expectedHashPassword);
 
-			authDatabase.DeleteCredentials(expectedLogin, expectedHashPassword);
+			Assert.True(authDatabase.DeleteCredentials(expectedLogin,
+				expectedHashPassword));
 
 			// Assert
 			Assert.True(areCredentialsTheSame);
@@ -357,12 +363,12 @@ namespace TestDatabaseAndLibrariesInteraction
 			string expectedHashPassword = PasswordHasher.
 				GetHash(expectedPassword);
 
-			authDatabase.AddCredentials(expectedLogin, expectedHashPassword);
+			Assert.True(authDatabase.AddCredentials(expectedLogin, expectedHashPassword));
 
 			bool areCredentialsTheSame = authDatabase.
 				CheckCredentials(expectedLogin, expectedHashPassword);
 
-			authDatabase.DeleteCredentials(expectedLogin, expectedHashPassword);
+			Assert.True(authDatabase.DeleteCredentials(expectedLogin, expectedHashPassword));
 
 			// Assert
 			Assert.True(areCredentialsTheSame);
@@ -382,11 +388,14 @@ namespace TestDatabaseAndLibrariesInteraction
 			// Act
 			string expectedHashPassword = PasswordHasher.GetHash(expectedPassword);
 
-			authDatabase.AddCredentials(expectedLogin, expectedHashPassword);
+			Assert.True(authDatabase.AddCredentials(expectedLogin,
+				expectedHashPassword));
 
-			bool areCredentialsTheSame = authDatabase.CheckCredentials(expectedLogin, expectedHashPassword);
+			bool areCredentialsTheSame = authDatabase.
+				CheckCredentials(expectedLogin, expectedHashPassword);
 
-			authDatabase.DeleteCredentials(expectedLogin, expectedHashPassword);
+			Assert.True(authDatabase.DeleteCredentials(expectedLogin,
+				expectedHashPassword));
 
 			// Assert
 			Assert.True(areCredentialsTheSame);
@@ -417,15 +426,16 @@ namespace TestDatabaseAndLibrariesInteraction
 			string newHashPassword = PasswordHasher.
 				GetHash(newPassword);
 
-			authDatabase.AddCredentials(firstLogin, firstHashPassword);
+			Assert.True(authDatabase.AddCredentials(firstLogin,
+				firstHashPassword));
 
-			authDatabase.UpdateCredentials(firstLogin, firstHashPassword,
-				newLogin, newHashPassword);
+			Assert.True(authDatabase.UpdateCredentials(firstLogin,
+				firstHashPassword, newLogin, newHashPassword));
 
 			bool areCredentialsTheSame = authDatabase.
 				CheckCredentials(newLogin, newHashPassword);
 
-			authDatabase.DeleteCredentials(newLogin, newHashPassword);
+			Assert.True(authDatabase.DeleteCredentials(newLogin, newHashPassword));
 
 			// Assert
 			Assert.True(areCredentialsTheSame);
@@ -452,15 +462,16 @@ namespace TestDatabaseAndLibrariesInteraction
 			string newHashPassword = PasswordHasher.
 				GetHash(newPassword);
 
-			authDatabase.AddCredentials(firstLogin, firstHashPassword);
+			Assert.True(authDatabase.AddCredentials(firstLogin,
+				firstHashPassword));
 
-			authDatabase.UpdateCredentials(firstLogin, firstHashPassword,
-				newLogin, newHashPassword);
+			Assert.True(authDatabase.UpdateCredentials(firstLogin,
+				firstHashPassword, newLogin, newHashPassword));
 
 			bool areCredentialsTheSame = authDatabase.
 				CheckCredentials(newLogin, newHashPassword);
 
-			authDatabase.DeleteCredentials(newLogin, newHashPassword);
+			Assert.True(authDatabase.DeleteCredentials(newLogin, newHashPassword));
 
 			// Assert
 			Assert.True(areCredentialsTheSame);
@@ -488,15 +499,16 @@ namespace TestDatabaseAndLibrariesInteraction
 			string newHashPassword = PasswordHasher.
 				GetHash(newPassword);
 
-			authDatabase.AddCredentials(firstLogin, firstHashPassword);
+			Assert.True(authDatabase.AddCredentials(firstLogin,
+				firstHashPassword));
 
-			authDatabase.UpdateCredentials(firstLogin, firstHashPassword,
-				newLogin, newHashPassword);
+			Assert.True(authDatabase.UpdateCredentials(firstLogin,
+				firstHashPassword, newLogin, newHashPassword));
 
 			bool areCredentialsTheSame = authDatabase.
 				CheckCredentials(newLogin, newHashPassword);
 
-			authDatabase.DeleteCredentials(newLogin, newHashPassword);
+			Assert.True(authDatabase.DeleteCredentials(newLogin, newHashPassword));
 
 			// Assert
 			Assert.True(areCredentialsTheSame);
@@ -523,15 +535,17 @@ namespace TestDatabaseAndLibrariesInteraction
 			string newHashPassword = PasswordHasher.
 				GetHash(newPassword);
 
-			authDatabase.AddCredentials(firstLogin, firstHashPassword);
+			Assert.True(authDatabase.AddCredentials(firstLogin,
+				firstHashPassword));
 
-			authDatabase.UpdateCredentials(firstLogin, firstHashPassword,
-				newLogin, newHashPassword);
+			Assert.True(authDatabase.UpdateCredentials(firstLogin,
+				firstHashPassword, newLogin, newHashPassword));
 
 			bool areCredentialsTheSame = authDatabase.
 				CheckCredentials(newLogin, newHashPassword);
 
-			authDatabase.DeleteCredentials(newLogin, newHashPassword);
+			Assert.True(authDatabase.DeleteCredentials(newLogin,
+				newHashPassword));
 
 			// Assert
 			Assert.True(areCredentialsTheSame);
@@ -558,15 +572,17 @@ namespace TestDatabaseAndLibrariesInteraction
 			string newHashPassword = PasswordHasher.
 				GetHash(newPassword);
 
-			authDatabase.AddCredentials(firstLogin, firstHashPassword);
+			Assert.True(authDatabase.AddCredentials(firstLogin,
+				firstHashPassword));
 
-			authDatabase.UpdateCredentials(firstLogin, firstHashPassword,
-				newLogin, newHashPassword);
+			Assert.True(authDatabase.UpdateCredentials(firstLogin,
+				firstHashPassword, newLogin, newHashPassword));
 
 			bool areCredentialsTheSame = authDatabase.
 				CheckCredentials(newLogin, newHashPassword);
 
-			authDatabase.DeleteCredentials(newLogin, newHashPassword);
+			Assert.True(authDatabase.DeleteCredentials(newLogin,
+				newHashPassword));
 
 			// Assert
 			Assert.True(areCredentialsTheSame);
