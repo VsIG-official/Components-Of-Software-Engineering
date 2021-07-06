@@ -1,75 +1,16 @@
-﻿using System;
-using IIG.Core.FileWorkingUtils;
+﻿using IIG.Core.FileWorkingUtils;
 
 namespace Lab2
 {
-	class Program
+	internal class Program
 	{
-		static void Main()
+		private static void Main()
 		{
 			const string FULL_PATH = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\TempFile.txt";
 
-			const string FULL_PATH_MD = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\TempFileMD.md";
-
-			const string FULL_PATH_EXCEL = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\TempFileEXCEL.xlsx";
-
-			const string FULL_PATH_XML = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\TempFileXML.xml";
-
-			const string FULL_PATH_CSV = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\TempFileCSV.csv";
-
-			const string FULL_PATH_NO_TRY_FILE = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\TryWriteFile.txt";
-
-			const string FULL_PATH_NO_DIR = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\NoDir\NoDirFile.txt";
-
-			const string FULL_PATH_NO_FILE_TRY_MD = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\TryWriteFileMD.md";
-
-			const string FULL_PATH_NO_FILE_TRY_XML = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\TryWriteFileXML.xml";
-
-			const string FULL_PATH_NO_FILE_TRY_CSV = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\TryWriteFileCSV.csv";
-
-			const string FULL_PATH_NO_FILE_TRY_XLSX = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\TryWriteFileXLSX.xlsx";
-
-			const string FULL_PATH_NO_FILE_WRITE_TXT = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\WriteFileTXT.txt";
-
-			const string FULL_PATH_NO_FILE_WRITE_MD = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\WriteFileMD.md";
-
-			const string FULL_PATH_NO_FILE_WRITE_XML = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\WriteFileXML.xml";
-
 			const string FULL_PATH_NO_FILE_WRITE_CSV = @"D:\ForStudy\Components-Of-" +
 				@"Software-Engineering\Labs\Lab2\Lab2\WriteFileCSV.csv";
-
-			const string FULL_PATH_NO_FILE_WRITE_XLSX = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\WriteFileXLSX.xlsx";
-
-			const string FULL_PATH_CREATE_DIR = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\" +
-				@"TestFiles\NoDirCreate";
-
-			const string FULL_PATH_COPY_FILE_FROM = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\" +
-				@"TestFiles\CopyFileTXT.txt";
-
-			const string FULL_PATH_COPY_FILE_TO = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\" +
-				@"TestFiles\CopyDir\CopyFileTXT.txt";
-
-			const string FULL_PATH_COPY_FILE_FROM_FALSE = @"D:\ForStudy\Components-Of-" +
-				@"Software-Engineering\Labs\Lab2\Lab2\" +
-				@"TestFiles\NoDir\CopyFileTXT.txt";
 
 			FileWorker worker = new(FULL_PATH);
 

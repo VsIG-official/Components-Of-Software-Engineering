@@ -1,11 +1,8 @@
-﻿using System;
-using IIG.PasswordHashingUtils;
-
-namespace Lab3
+﻿namespace Lab3
 {
-	class Program
+	internal class Program
 	{
-		static void Main()
+		private static void Main()
 		{
 			//try
 			//{

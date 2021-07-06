@@ -25,4 +25,12 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="F:\ForWork\Repos\Components-Of-Software-Engineering\Labs\Lab2\TestFileWorkingUtils\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="F:\ForWork\Repos\Components-Of-Software-Engineering\Labs\Lab2\TestFileWorkingUtils\.editorconfig" />
+  </ItemGroup>
+
 </Project>
